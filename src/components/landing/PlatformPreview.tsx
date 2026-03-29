@@ -1,233 +1,322 @@
+"use client";
+
+import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { SIGNUP_URL } from "@/lib/constants";
 
-// Figma Dev Mode asset URLs (localhost:3845 — replace with CDN URLs in production)
-const ASSETS = {
-  imgLeft:
-    "http://localhost:3845/assets/6f8b2eec27bb1ae627245150c6889627c1850c4c.png",
-  imgCenter:
-    "http://localhost:3845/assets/ad1103ecba90f38f8d3438cc0450b0d2606f4be4.png",
-  imgRight:
-    "http://localhost:3845/assets/5ad3068b6807e0c127a98059ebcf8d7e3f6cd83f.png",
-  centerStar:
-    "http://localhost:3845/assets/f8838259c883a6a2e54617c09f9e056837fd668b.svg",
-};
+// ── Sub-components ────────────────────────────────────────────────────────────
 
-function StarsIcon({ className }: { className?: string }) {
+function ChevronLeft() {
   return (
-    <svg
-      viewBox="0 0 61 61"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15 18L9 12L15 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function ChevronRight() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9 18L15 12L9 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+/** Vertical timeline indicator — 3 steps, `active` is highlighted */
+function VerticalTimeline({ active }: { active: number }) {
+  const steps = [0, 1, 2];
+  return (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 0 }}>
+      {steps.map((step, i) => (
+        <div key={step} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+          {/* dot */}
+          <div
+            style={{
+              width: step === active ? 16 : 10,
+              height: step === active ? 16 : 10,
+              borderRadius: "50%",
+              background: step === active ? "#FFFFFF" : "rgba(255,255,255,0.3)",
+              transition: "all 0.3s ease",
+              flexShrink: 0,
+            }}
+          />
+          {/* connector line (not after last dot) */}
+          {i < steps.length - 1 && (
+            <div
+              style={{
+                width: 2,
+                height: 60,
+                background:
+                  step < active
+                    ? "rgba(255,255,255,0.6)"
+                    : "rgba(255,255,255,0.2)",
+              }}
+            />
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/** Browser chrome wrapper around dashboard content */
+function BrowserMockup() {
+  return (
+    <div
+      style={{
+        width: "100%",
+        borderRadius: "12.98px",
+        overflow: "hidden",
+        boxShadow: "0 32px 80px rgba(0,0,0,0.45)",
+      }}
     >
-      <g clipPath="url(#about-stars-clip)">
-        <path
-          d="M29.1923 23.8167C29.6117 22.5586 31.3883 22.5586 31.8077 23.8167L34.2668 31.2015C34.808 32.8249 35.72 34.2998 36.9303 35.5095C38.1407 36.7192 39.6161 37.6304 41.2398 38.1708L48.6208 40.6298C49.8789 41.0492 49.8789 42.8258 48.6208 43.2452L41.236 45.7043C39.6126 46.2455 38.1376 47.1575 36.928 48.3678C35.7183 49.5782 34.8071 51.0537 34.2668 52.6773L31.8077 60.0583C31.7173 60.3338 31.5422 60.5737 31.3073 60.7438C31.0725 60.9139 30.79 61.0055 30.5 61.0055C30.21 61.0055 29.9275 60.9139 29.6927 60.7438C29.4578 60.5737 29.2827 60.3338 29.1923 60.0583L26.7333 52.6735C26.1924 51.0505 25.281 49.5758 24.0713 48.3662C22.8617 47.1565 21.387 46.2451 19.764 45.7043L12.3792 43.2452C12.1037 43.1548 11.8638 42.9797 11.6937 42.7448C11.5236 42.51 11.432 42.2275 11.432 41.9375C11.432 41.6475 11.5236 41.365 11.6937 41.1302C11.8638 40.8953 12.1037 40.7202 12.3792 40.6298L19.764 38.1708C21.387 37.6299 22.8617 36.7185 24.0713 35.5088C25.281 34.2992 26.1924 32.8245 26.7333 31.2015L29.1923 23.8167ZM14.4646 4.37675C14.5193 4.21165 14.6246 4.06797 14.7656 3.96614C14.9066 3.86431 15.0761 3.8095 15.25 3.8095C15.4239 3.8095 15.5934 3.86431 15.7344 3.96614C15.8754 4.06797 15.9807 4.21165 16.0354 4.37675L17.5108 8.80688C18.1704 10.7818 19.7183 12.3296 21.6931 12.9892L26.1233 14.4646C26.2884 14.5193 26.432 14.6246 26.5339 14.7656C26.6357 14.9066 26.6905 15.0761 26.6905 15.25C26.6905 15.4239 26.6357 15.5934 26.5339 15.7344C26.432 15.8754 26.2884 15.9807 26.1233 16.0354L21.6931 17.5108C20.7191 17.8353 19.8341 18.3822 19.1082 19.1082C18.3822 19.8341 17.8353 20.7191 17.5108 21.6931L16.0354 26.1233C15.9807 26.2884 15.8754 26.432 15.7344 26.5339C15.5934 26.6357 15.4239 26.6905 15.25 26.6905C15.0761 26.6905 14.9066 26.6357 14.7656 26.5339C14.6246 26.432 14.5193 26.2884 14.4646 26.1233L12.9892 21.6931C12.6647 20.7191 12.1178 19.8341 11.3918 19.1082C10.6659 18.3822 9.78087 17.8353 8.80687 17.5108L4.37675 16.0354C4.21165 15.9807 4.06797 15.8754 3.96614 15.7344C3.86431 15.5934 3.8095 15.4239 3.8095 15.25C3.8095 15.0761 3.86431 14.9066 3.96614 14.7656C4.06797 14.6246 4.21165 14.5193 4.37675 14.4646L8.80687 12.9892C9.78087 12.6647 10.6659 12.1178 11.3918 11.3918C12.1178 10.6659 12.6647 9.78087 12.9892 8.80688L14.4646 4.37675ZM41.4152 0.377438C41.4528 0.268882 41.5233 0.174749 41.617 0.108129C41.7106 0.0415077 41.8226 0.00570872 41.9375 0.00570872C42.0524 0.00570872 42.1644 0.0415077 42.258 0.108129C42.3517 0.174749 42.4222 0.268882 42.4598 0.377438L43.4434 3.32831C43.8819 4.64744 44.9151 5.68062 46.2342 6.11906L49.1851 7.10269C49.2936 7.14032 49.3878 7.21085 49.4544 7.30446C49.521 7.39806 49.5568 7.5101 49.5568 7.625C49.5568 7.73989 49.521 7.85194 49.4544 7.94554C49.3878 8.03915 49.2936 8.10968 49.1851 8.14731L46.2342 9.13094C45.5841 9.34719 44.9934 9.71203 44.509 10.1965C44.0245 10.6809 43.6597 11.2716 43.4434 11.9217L42.4598 14.8726C42.4222 14.9811 42.3517 15.0753 42.258 15.1419C42.1644 15.2085 42.0524 15.2443 41.9375 15.2443C41.8226 15.2443 41.7106 15.2085 41.617 15.1419C41.5233 15.0753 41.4528 14.9811 41.4152 14.8726L40.4316 11.9217C40.2153 11.2716 39.8505 10.6809 39.366 10.1965C38.8816 9.71203 38.2909 9.34719 37.6408 9.13094L34.6938 8.14731C34.5852 8.10968 34.4911 8.03915 34.4244 7.94554C34.3578 7.85194 34.322 7.73989 34.322 7.625C34.322 7.5101 34.3578 7.39806 34.4244 7.30446C34.4911 7.21085 34.5852 7.14032 34.6938 7.10269L37.6446 6.11906C38.9637 5.68062 39.9969 4.64744 40.4354 3.32831L41.4152 0.377438Z"
-          fill="url(#about-stars-gradient)"
-        />
-      </g>
-      <defs>
-        <linearGradient
-          id="about-stars-gradient"
-          x1="26.687"
-          y1="0.00570872"
-          x2="26.687"
-          y2="61.0055"
-          gradientUnits="userSpaceOnUse"
+      {/* ── Browser chrome bar ── */}
+      <div
+        style={{
+          background: "#1e1c2e",
+          padding: "10px 16px",
+          display: "flex",
+          alignItems: "center",
+          gap: 10,
+        }}
+      >
+        {/* Traffic-light dots */}
+        <div style={{ display: "flex", gap: 6, alignItems: "center", flexShrink: 0 }}>
+          <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#FF5F57" }} />
+          <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#FEBC2E" }} />
+          <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#28C840" }} />
+        </div>
+        {/* Nav arrows */}
+        <div style={{ display: "flex", gap: 4, flexShrink: 0 }}>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M9 11L5 7L9 3" stroke="#716D8E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M5 3L9 7L5 11" stroke="#716D8E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </div>
+        {/* URL bar */}
+        <div
+          style={{
+            flex: 1,
+            background: "rgba(113,109,142,0.2)",
+            borderRadius: "6.5px",
+            padding: "4px 12px",
+            display: "flex",
+            alignItems: "center",
+          }}
         >
-          <stop stopColor="#EBA352" />
-          <stop offset="1" stopColor="#F7EE13" />
-        </linearGradient>
-        <clipPath id="about-stars-clip">
-          <rect width="61" height="61" fill="white" />
-        </clipPath>
-      </defs>
-    </svg>
+          <span
+            style={{
+              fontFamily: "Mulish, sans-serif",
+              fontSize: 12,
+              fontWeight: 600,
+              color: "#B4B4B4",
+            }}
+          >
+            app.yourapp.io
+          </span>
+        </div>
+        <div style={{ width: 48, flexShrink: 0 }} />
+      </div>
+
+      {/* ── Dashboard content ── */}
+      <div
+        style={{
+          background: "#0f0e1a",
+          padding: "20px 20px 0 20px",
+        }}
+      >
+        {/* ── Stat cards ── */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(4, 1fr)",
+            gap: 12,
+            marginBottom: 16,
+          }}
+        >
+          {[
+            { label: "Total Students", value: "1,234" },
+            { label: "Total Views", value: "45,678" },
+            { label: "Engagement", value: "8,901" },
+            { label: "Revenue", value: "67,890" },
+          ].map((stat, i) => (
+            <div
+              key={i}
+              style={{
+                background: "#1b1a2e",
+                borderRadius: 8,
+                padding: "12px 14px",
+                border: "1px solid rgba(255,255,255,0.07)",
+              }}
+            >
+              <div
+                style={{
+                  fontSize: 10,
+                  color: "#808080",
+                  marginBottom: 6,
+                  fontFamily: "IBM Plex Sans Arabic, sans-serif",
+                }}
+              >
+                {stat.label}
+              </div>
+              <div
+                style={{
+                  fontSize: 20,
+                  fontWeight: 700,
+                  color: "#fff",
+                  fontFamily: "IBM Plex Sans Arabic, sans-serif",
+                }}
+              >
+                {stat.value}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* ── Area chart ── */}
+        <div
+          style={{
+            background: "#1b1a2e",
+            borderRadius: 8,
+            padding: "12px 14px",
+            marginBottom: 16,
+            border: "1px solid rgba(255,255,255,0.07)",
+            height: 110,
+            position: "relative",
+            overflow: "hidden",
+          }}
+        >
+          <div style={{ fontSize: 10, color: "#808080", marginBottom: 8, fontFamily: "IBM Plex Sans Arabic, sans-serif" }}>
+            Enrollment Trend
+          </div>
+          <svg
+            width="100%"
+            height="72"
+            viewBox="0 0 560 72"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <linearGradient id="chart-fill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#4C4BE0" stopOpacity="0.45" />
+                <stop offset="100%" stopColor="#4C4BE0" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M0,68 C40,58 80,14 130,22 C180,30 210,8 260,12 C310,16 350,44 400,30 C450,16 500,26 560,20 L560,72 L0,72 Z"
+              fill="url(#chart-fill)"
+            />
+            <path
+              d="M0,68 C40,58 80,14 130,22 C180,30 210,8 260,12 C310,16 350,44 400,30 C450,16 500,26 560,20"
+              stroke="#4C4BE0"
+              strokeWidth="2"
+              fill="none"
+            />
+          </svg>
+        </div>
+
+        {/* ── Data table ── */}
+        <div
+          style={{
+            background: "#1b1a2e",
+            borderRadius: "8px 8px 0 0",
+            overflow: "hidden",
+            border: "1px solid rgba(255,255,255,0.07)",
+            borderBottom: "none",
+          }}
+        >
+          {/* Table header */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1.4fr 2fr 1fr 1fr 1.2fr 1.2fr",
+              padding: "8px 14px",
+              borderBottom: "1px solid rgba(255,255,255,0.07)",
+              background: "rgba(255,255,255,0.03)",
+            }}
+          >
+            {["Name", "Email", "Status", "Type", "Created At", "Updated At"].map((h) => (
+              <span
+                key={h}
+                style={{
+                  fontSize: 9,
+                  color: "#808080",
+                  fontFamily: "IBM Plex Sans Arabic, sans-serif",
+                  fontWeight: 600,
+                }}
+              >
+                {h}
+              </span>
+            ))}
+          </div>
+          {/* Table rows */}
+          {[
+            { name: "Ahmed K.", email: "ahmed@mail.com", status: "Active", type: "Premium", created: "2024-01-10", updated: "2024-03-12" },
+            { name: "Sara M.", email: "sara@mail.com", status: "Inactive", type: "Basic", created: "2024-01-14", updated: "2024-02-28" },
+            { name: "Omar H.", email: "omar@mail.com", status: "Active", type: "Premium", created: "2024-02-03", updated: "2024-03-15" },
+          ].map((row, i, arr) => (
+            <div
+              key={i}
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1.4fr 2fr 1fr 1fr 1.2fr 1.2fr",
+                padding: "9px 14px",
+                borderBottom: i < arr.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none",
+                alignItems: "center",
+              }}
+            >
+              <span style={{ fontSize: 9, color: "#fff", fontFamily: "IBM Plex Sans Arabic, sans-serif" }}>{row.name}</span>
+              <span style={{ fontSize: 9, color: "#808080", fontFamily: "IBM Plex Sans Arabic, sans-serif" }}>{row.email}</span>
+              <span>
+                <span
+                  style={{
+                    fontSize: 8,
+                    fontFamily: "IBM Plex Sans Arabic, sans-serif",
+                    color: row.status === "Active" ? "#4C4BE0" : "#FF5F57",
+                    background: row.status === "Active" ? "rgba(76,75,224,0.18)" : "rgba(255,95,87,0.18)",
+                    borderRadius: 4,
+                    padding: "2px 7px",
+                    fontWeight: 600,
+                  }}
+                >
+                  {row.status}
+                </span>
+              </span>
+              <span style={{ fontSize: 9, color: "#808080", fontFamily: "IBM Plex Sans Arabic, sans-serif" }}>{row.type}</span>
+              <span style={{ fontSize: 9, color: "#808080", fontFamily: "IBM Plex Sans Arabic, sans-serif" }}>{row.created}</span>
+              <span style={{ fontSize: 9, color: "#808080", fontFamily: "IBM Plex Sans Arabic, sans-serif" }}>{row.updated}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 
-function FourPointedStar({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 124 124"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-    >
-      <path
-        d="M62 0C62 0 58.5 34 44 48C30 62 0 62 0 62C0 62 30 62 44 76C58.5 90 62 124 62 124C62 124 65.5 90 80 76C94 62 124 62 124 62C124 62 94 62 80 48C65.5 34 62 0 62 0Z"
-        fill="#4C4BE0"
-      />
-    </svg>
-  );
-}
+// ── Main section ──────────────────────────────────────────────────────────────
+
+const SERVICES = ["service1", "service2", "service3"] as const;
 
 export default function PlatformPreview() {
   const t = useTranslations("platformPreview");
+  const [active, setActive] = useState(0);
+
+  function prev() {
+    setActive((a) => (a - 1 + SERVICES.length) % SERVICES.length);
+  }
+  function next() {
+    setActive((a) => (a + 1) % SERVICES.length);
+  }
+
+  const serviceKey = SERVICES[active];
+  const serviceTitle = t(`${serviceKey}Title`);
+  const serviceDesc = t(`${serviceKey}Description`);
 
   return (
-    <section id="about" className="relative overflow-hidden bg-white">
-      {/* ── Background radial gradient overlay ── */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{ opacity: 0.4 }}
-      >
-        <svg
-          viewBox="0 0 1440 1207"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="xMidYMid slice"
-          style={{ width: "100%", height: "100%" }}
-        >
-          <g filter="url(#about-bg-blur)">
-            <ellipse
-              cx="720"
-              cy="603.5"
-              rx="720"
-              ry="603.5"
-              fill="url(#about-bg-gradient)"
-            />
-          </g>
-          <defs>
-            <radialGradient
-              id="about-bg-gradient"
-              cx="0"
-              cy="0"
-              r="1"
-              gradientUnits="userSpaceOnUse"
-              gradientTransform="translate(720 603.5) scale(720 603.5)"
-            >
-              <stop stopColor="#B0DFF5" stopOpacity="0" />
-              <stop offset="0.5" stopColor="#7E95EB" stopOpacity="0.5" />
-              <stop offset="0.75" stopColor="#6570E5" stopOpacity="0.75" />
-              <stop offset="1" stopColor="#4C4BE0" />
-            </radialGradient>
-            <filter
-              id="about-bg-blur"
-              x="-10%"
-              y="-10%"
-              width="120%"
-              height="120%"
-              filterUnits="objectBoundingBox"
-              colorInterpolationFilters="sRGB"
-            >
-              <feGaussianBlur stdDeviation="40" />
-            </filter>
-          </defs>
-        </svg>
-      </div>
-
-      {/* ── Top-right decorative ellipse glow ── */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute"
-        style={{ right: -100, top: -81, width: 440, height: 440 }}
-      >
-        <div className="absolute" style={{ inset: "-50.91%" }}>
-          <svg
-            viewBox="0 0 840 840"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ width: "100%", height: "100%", overflow: "visible" }}
-          >
-            <g filter="url(#about-glow-tr)">
-              <circle
-                cx="420"
-                cy="420"
-                r="220"
-                fill="#4C4BE0"
-                fillOpacity="0.15"
-              />
-            </g>
-            <defs>
-              <filter
-                id="about-glow-tr"
-                x="0"
-                y="0"
-                width="840"
-                height="840"
-                filterUnits="userSpaceOnUse"
-                colorInterpolationFilters="sRGB"
-              >
-                <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                <feBlend
-                  mode="normal"
-                  in="SourceGraphic"
-                  in2="BackgroundImageFix"
-                  result="shape"
-                />
-                <feGaussianBlur
-                  stdDeviation="100"
-                  result="effect1_foregroundBlur"
-                />
-              </filter>
-            </defs>
-          </svg>
-        </div>
-      </div>
-
-      {/* ── Bottom-left decorative ellipse glow ── */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute"
-        style={{ left: -78, bottom: -100, width: 540, height: 540 }}
-      >
-        <div className="absolute" style={{ inset: "-41.48%" }}>
-          <svg
-            viewBox="0 0 940 940"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ width: "100%", height: "100%", overflow: "visible" }}
-          >
-            <g filter="url(#about-glow-bl)">
-              <circle
-                cx="470"
-                cy="470"
-                r="270"
-                fill="#4C4BE0"
-                fillOpacity="0.12"
-              />
-            </g>
-            <defs>
-              <filter
-                id="about-glow-bl"
-                x="0"
-                y="0"
-                width="940"
-                height="940"
-                filterUnits="userSpaceOnUse"
-                colorInterpolationFilters="sRGB"
-              >
-                <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                <feBlend
-                  mode="normal"
-                  in="SourceGraphic"
-                  in2="BackgroundImageFix"
-                  result="shape"
-                />
-                <feGaussianBlur
-                  stdDeviation="100"
-                  result="effect1_foregroundBlur"
-                />
-              </filter>
-            </defs>
-          </svg>
-        </div>
-      </div>
-
-      {/* ── Stars icon (decorative, near heading) ── */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute hidden md:block"
-        style={{ left: 432, top: 192, width: 61, height: 61 }}
-      >
-        <div style={{ transform: "rotate(-160.45deg)", width: 61, height: 61 }}>
-          <StarsIcon className="w-full h-full" />
-        </div>
-      </div>
-
+    <section
+      id="services"
+      className="relative overflow-hidden bg-white"
+    >
       {/* ── Main content ── */}
       <div
         className="relative z-10 mx-auto max-w-[1440px]"
@@ -236,157 +325,228 @@ export default function PlatformPreview() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          gap: 80,
+          gap: 64,
         }}
       >
-        {/* Text + CTA block */}
+        {/* ── Header ── */}
         <div
           style={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            gap: 56,
-            width: "100%",
+            gap: 24,
+            position: "relative",
           }}
         >
-          {/* Heading */}
+          {/* Decorative background arc */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute"
+            style={{ top: -40, left: "50%", transform: "translateX(-50%)", width: 560, height: 120, zIndex: 0 }}
+          >
+            <svg viewBox="0 0 560 120" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%", overflow: "visible" }}>
+              <g filter="url(#services-arc-blur)">
+                <ellipse cx="280" cy="60" rx="200" ry="30" fill="#4C4BE0" fillOpacity="0.12" />
+              </g>
+              <defs>
+                <filter id="services-arc-blur" x="-60%" y="-200%" width="220%" height="500%" colorInterpolationFilters="sRGB">
+                  <feGaussianBlur stdDeviation="24" />
+                </filter>
+              </defs>
+            </svg>
+          </div>
+
           <h2
-            className="text-center"
+            className="relative z-10 text-center"
             style={{
               fontFamily: "IBM Plex Sans Arabic, sans-serif",
               fontWeight: 600,
               fontSize: "clamp(2rem, 3.5vw, 48px)",
               lineHeight: "100%",
               margin: 0,
+              textTransform: "capitalize",
             }}
           >
-            <span style={{ color: "#3938a8" }}>{t("headingHighlight")}</span>
-            <span style={{ color: "#0d0d0d" }}>{t("headingNormal")}</span>
+            <span style={{ color: "#3938A8" }}>{t("sectionTitle1")}</span>
+            <span style={{ color: "#0D0D0D" }}>{t("sectionTitle2")}</span>
           </h2>
 
-          {/* Subheading */}
           <p
-            className="text-center"
-            style={{
-              fontFamily: "IBM Plex Sans Arabic, sans-serif",
-              fontWeight: 500,
-              fontSize: "clamp(1.5rem, 3vw, 40px)",
-              lineHeight: "100%",
-              margin: 0,
-            }}
-          >
-            <span style={{ color: "#636363" }}>{t("subheadingPart1")}</span>
-            <span style={{ fontWeight: 600, color: "#1b1a4e" }}>
-              {t("subheadingPart2")}
-            </span>
-          </p>
-
-          {/* Body text */}
-          <p
-            className="text-center"
+            className="relative z-10 text-center"
             style={{
               fontFamily: "IBM Plex Sans Arabic, sans-serif",
               fontWeight: 400,
               fontSize: "clamp(1rem, 1.8vw, 24px)",
               lineHeight: "48px",
               color: "#808080",
-              maxWidth: 1082,
+              maxWidth: 832,
               margin: 0,
-              whiteSpace: "pre-wrap",
             }}
           >
-            {t("description")}
+            {t("sectionSubtitle")}
           </p>
-
-          {/* CTA button */}
-          <a
-            href={SIGNUP_URL}
-            className="inline-flex items-center justify-center transition-opacity hover:opacity-90"
-            style={{
-              background: "linear-gradient(90deg, #4c4be0 0%, #0098df 100%)",
-              borderRadius: 40,
-              height: 80,
-              padding: "10px 24px",
-              color: "white",
-              fontFamily: "IBM Plex Sans Arabic, sans-serif",
-              fontSize: "clamp(1rem, 1.8vw, 24px)",
-              fontWeight: 600,
-              lineHeight: "48px",
-              textDecoration: "none",
-              whiteSpace: "nowrap",
-              boxShadow: "0 8px 32px rgba(76,75,224,0.25)",
-            }}
-          >
-            {t("cta")}
-          </a>
         </div>
 
-        {/* ── Image gallery ── */}
+        {/* ── Main card ── */}
         <div
-          className="w-full"
           style={{
+            width: "100%",
+            background: "linear-gradient(180deg, #4C4BE0 0%, #1B1A4E 100%)",
+            borderRadius: 32,
+            padding: 64,
             display: "flex",
-            alignItems: "flex-end",
-            gap: 20,
-            maxWidth: 1280,
+            flexDirection: "column",
+            gap: 48,
+            position: "relative",
+            overflow: "hidden",
           }}
         >
-          {/* Left image — tall */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            alt=""
-            src={ASSETS.imgLeft}
+          {/* Background glow ellipse */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute"
             style={{
-              flex: "1 0 0",
-              height: 440,
-              borderRadius: 21.684,
-              objectFit: "cover",
-              minWidth: 0,
+              width: 1024,
+              height: 1024,
+              borderRadius: "50%",
+              left: "50%",
+              top: "50%",
+              transform: "translate(-50%, -50%)",
+              background: "radial-gradient(circle, rgba(76,75,224,0.25) 0%, rgba(27,26,78,0) 70%)",
+              zIndex: 0,
             }}
           />
 
-          {/* Center column — star decoration + shorter image */}
+          {/* ── Content row ── */}
           <div
+            className="relative z-10"
             style={{
-              flex: "1 0 0",
               display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: 0,
-              minWidth: 0,
-              position: "relative",
+              gap: 40,
+              alignItems: "flex-start",
             }}
           >
-            {/* 4-pointed star decoration above center image */}
-            <div className="mb-3" style={{ width: 62, height: 62, flexShrink: 0 }}>
-              <FourPointedStar className="w-full h-full" />
-            </div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              alt=""
-              src={ASSETS.imgCenter}
+            {/* Left: timeline + service name */}
+            <div
               style={{
-                width: "100%",
-                height: 280,
-                borderRadius: 21.684,
-                objectFit: "cover",
+                display: "flex",
+                flexDirection: "row",
+                gap: 24,
+                flexShrink: 0,
+                alignItems: "flex-start",
               }}
-            />
+            >
+              <VerticalTimeline active={active} />
+              <h3
+                style={{
+                  fontFamily: "IBM Plex Sans Arabic, sans-serif",
+                  fontWeight: 600,
+                  fontSize: 32,
+                  lineHeight: "64px",
+                  color: "#FFFFFF",
+                  margin: 0,
+                  textTransform: "capitalize",
+                  width: 215,
+                }}
+              >
+                {serviceTitle}
+              </h3>
+            </div>
+
+            {/* Right: description + browser mockup */}
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 32, minWidth: 0 }}>
+              <p
+                style={{
+                  fontFamily: "IBM Plex Sans Arabic, sans-serif",
+                  fontWeight: 500,
+                  fontSize: "clamp(1rem, 1.8vw, 24px)",
+                  lineHeight: "48px",
+                  color: "#DDDDDD",
+                  margin: 0,
+                  maxWidth: 809,
+                }}
+              >
+                {serviceDesc}
+              </p>
+              <BrowserMockup />
+            </div>
           </div>
 
-          {/* Right image — tall, fixed width */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            alt=""
-            src={ASSETS.imgRight}
+          {/* ── Pagination ── */}
+          <div
+            className="relative z-10"
             style={{
-              width: 324,
-              flexShrink: 0,
-              height: 440,
-              borderRadius: 21.684,
-              objectFit: "cover",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 24,
             }}
-          />
+          >
+            {/* Left arrow */}
+            <button
+              onClick={prev}
+              aria-label="Previous service"
+              style={{
+                width: 40,
+                height: 40,
+                borderRadius: "50%",
+                background: "rgba(255,255,255,0.12)",
+                border: "none",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                transition: "background 0.2s",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.22)")}
+              onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.12)")}
+            >
+              <ChevronLeft />
+            </button>
+
+            {/* Dots */}
+            <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+              {SERVICES.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActive(i)}
+                  aria-label={`Service ${i + 1}`}
+                  style={{
+                    width: i === active ? 28 : 10,
+                    height: 10,
+                    borderRadius: 5,
+                    background: i === active ? "#FFFFFF" : "rgba(255,255,255,0.3)",
+                    border: "none",
+                    cursor: "pointer",
+                    padding: 0,
+                    transition: "all 0.3s ease",
+                  }}
+                />
+              ))}
+            </div>
+
+            {/* Right arrow */}
+            <button
+              onClick={next}
+              aria-label="Next service"
+              style={{
+                width: 40,
+                height: 40,
+                borderRadius: "50%",
+                background: "rgba(255,255,255,0.12)",
+                border: "none",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                transition: "background 0.2s",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.22)")}
+              onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.12)")}
+            >
+              <ChevronRight />
+            </button>
+          </div>
         </div>
       </div>
     </section>
