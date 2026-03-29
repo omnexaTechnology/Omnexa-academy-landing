@@ -7,12 +7,14 @@ export default {
     startTrial: "Start free trial",
   },
   hero: {
-    headlinePart1: "Launch Your",
-    headlinePart2: "Digital Academy in Minutes",
+    headlineHighlight1: "Launch",
+    headlineMid: " your digital ",
+    headlineHighlight2: "academy",
+    headlineEnd: " in minutes",
     description:
-      "Omnexa gives you all the tools to create and manage your digital academy efficiently and easily. A professional site for your students, a smart dashboard for courses — all without technical complexity.",
+      "Omnexa learn provides all the tools to easily manage your digital academy, with a professional website for students and a smart dashboard no technical skills required.",
     cta: "Create Your Academy",
-    speechBubble: "We handle the technology so you can focus on teaching and content creation",
+    speechBubble: "We take care of the tech, so you can focus on teaching and content creation",
   },
   platformPreview: {
     title: "Your Academy, Your Way",
