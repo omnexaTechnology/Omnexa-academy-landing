@@ -1,7 +1,8 @@
 import Navbar from "@/components/landing/Navbar";
 import HeroSection from "@/components/landing/HeroSection";
-import PlatformPreview from "@/components/landing/PlatformPreview";
+import AboutSection from "@/components/landing/AboutSection";
 import FeaturesSection from "@/components/landing/FeaturesSection";
+import PlatformPreview from "@/components/landing/PlatformPreview";
 import DashboardPreview from "@/components/landing/DashboardPreview";
 import StepsSection from "@/components/landing/StepsSection";
 import PricingSection from "@/components/landing/PricingSection";
@@ -13,8 +14,9 @@ export default function Home() {
     <main>
       <Navbar />
       <HeroSection />
-      <PlatformPreview />
+      <AboutSection />
       <FeaturesSection />
+      <PlatformPreview />
       <DashboardPreview />
       <StepsSection />
       <PricingSection />

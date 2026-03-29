@@ -16,7 +16,7 @@ export default {
     cta: "Create Your Academy",
     speechBubble: "We take care of the tech, so you can focus on teaching and content creation",
   },
-  platformPreview: {
+  aboutSection: {
     headingHighlight: "About ",
     headingNormal: "Omnexa Learn",
     subheadingPart1: "Your Smart Platform",
@@ -24,6 +24,21 @@ export default {
     description:
       "Omnexa learn gives you everything you need to create and manage your digital academy with ease. A professional website for your students, a smart dashboard to manage courses and learners all without any technical complexity.",
     cta: "Create Your Academy",
+  },
+  platformPreview: {
+    sectionTitle1: "Services ",
+    sectionTitle2: "Offered by Omnexa Learn",
+    sectionSubtitle:
+      "Integrated services to support your digital academy from launch to growth, designed to simplify management and enhance the learning experience.",
+    service1Title: "Student Management",
+    service1Description:
+      "Omnexa learn gives you all the tools to create and manage your digital academy effortlessly. We take care of technology, updates, and infrastructure so you can focus on delivering quality education.",
+    service2Title: "Course Builder",
+    service2Description:
+      "Build rich, structured courses with videos, quizzes, and downloadable resources. Our intuitive editor makes content creation fast, flexible, and enjoyable for any educator.",
+    service3Title: "Analytics Dashboard",
+    service3Description:
+      "Get actionable insights on student engagement, completion rates, and revenue. Track your academy's growth with real-time data and make smarter decisions every day.",
   },
   features: {
     title: "Everything You Need to Succeed",
