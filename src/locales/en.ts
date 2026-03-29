@@ -17,9 +17,13 @@ export default {
     speechBubble: "We take care of the tech, so you can focus on teaching and content creation",
   },
   platformPreview: {
-    title: "Your Academy, Your Way",
+    headingHighlight: "About ",
+    headingNormal: "Omnexa Learn",
+    subheadingPart1: "Your Smart Platform",
+    subheadingPart2: " To Build And Manage Your Digital Academy",
     description:
-      "Design a fully branded learning experience that reflects your identity. From custom domains to personalized themes, take complete control of how your students learn.",
+      "Omnexa learn gives you everything you need to create and manage your digital academy with ease. A professional website for your students, a smart dashboard to manage courses and learners all without any technical complexity.",
+    cta: "Create Your Academy",
   },
   features: {
     title: "Everything You Need to Succeed",
