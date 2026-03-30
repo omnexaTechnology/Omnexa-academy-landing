@@ -225,25 +225,10 @@ export default function AboutSection() {
 
       {/* ── Main content ── */}
       <div
-        className="relative z-10 mx-auto max-w-[1440px]"
-        style={{
-          padding: "120px 80px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: 80,
-        }}
+        className="relative z-10 mx-auto flex max-w-[1440px] flex-col items-center gap-12 px-5 py-[80px] md:gap-16 md:px-10 md:py-[100px] lg:gap-[80px] lg:px-20 lg:py-[120px]"
       >
         {/* Text + CTA block */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: 56,
-            width: "100%",
-          }}
-        >
+        <div className="flex w-full flex-col items-center gap-8 md:gap-[56px]">
           {/* Heading */}
           <h2
             className="text-center"
@@ -300,13 +285,13 @@ export default function AboutSection() {
             style={{
               background: "linear-gradient(90deg, #4c4be0 0%, #0098df 100%)",
               borderRadius: 40,
-              height: 80,
+              minHeight: 56,
               padding: "10px 24px",
               color: "white",
               fontFamily: "IBM Plex Sans Arabic, sans-serif",
               fontSize: "clamp(1rem, 1.8vw, 24px)",
               fontWeight: 600,
-              lineHeight: "48px",
+              lineHeight: "1.5",
               textDecoration: "none",
               whiteSpace: "nowrap",
               boxShadow: "0 8px 32px rgba(76,75,224,0.25)",
@@ -317,25 +302,11 @@ export default function AboutSection() {
         </div>
 
         {/* ── Image gallery ── */}
-        <div
-          className="w-full"
-          style={{
-            display: "flex",
-            alignItems: "flex-end",
-            gap: 20,
-            maxWidth: 1280,
-          }}
-        >
+        <div className="flex w-full max-w-[1280px] flex-col items-stretch gap-5 md:flex-row md:items-end">
           {/* Left image — tall */}
           <div
-            style={{
-              flex: "1 0 0",
-              height: 440,
-              borderRadius: 21.684,
-              overflow: "hidden",
-              position: "relative",
-              minWidth: 0,
-            }}
+            className="relative min-h-[240px] flex-1 md:h-[340px] lg:h-[440px]"
+            style={{ borderRadius: 21.684, overflow: "hidden" }}
           >
             <Image
               alt="Omnexa Academy students learning together"
@@ -346,29 +317,14 @@ export default function AboutSection() {
           </div>
 
           {/* Center column — star decoration + shorter image */}
-          <div
-            style={{
-              flex: "1 0 0",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: 0,
-              minWidth: 0,
-              position: "relative",
-            }}
-          >
+          <div className="relative flex min-w-0 flex-1 flex-col items-center">
             {/* 4-pointed star decoration above center image */}
             <div className="mb-3" style={{ width: 62, height: 62, flexShrink: 0 }}>
               <FourPointedStar className="w-full h-full" />
             </div>
             <div
-              style={{
-                width: "100%",
-                height: 280,
-                borderRadius: 21.684,
-                overflow: "hidden",
-                position: "relative",
-              }}
+              className="relative w-full"
+              style={{ height: 220, borderRadius: 21.684, overflow: "hidden" }}
             >
               <Image
                 alt="Omnexa Academy online course"
@@ -379,16 +335,10 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* Right image — tall, fixed width */}
+          {/* Right image — tall */}
           <div
-            style={{
-              width: 324,
-              flexShrink: 0,
-              height: 440,
-              borderRadius: 21.684,
-              overflow: "hidden",
-              position: "relative",
-            }}
+            className="relative min-h-[240px] flex-1 md:h-[340px] lg:h-[440px]"
+            style={{ borderRadius: 21.684, overflow: "hidden" }}
           >
             <Image
               alt="Omnexa Academy instructor"

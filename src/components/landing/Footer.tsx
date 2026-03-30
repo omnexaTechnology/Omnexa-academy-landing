@@ -168,7 +168,7 @@ export default function Footer() {
         />
 
         {/* ── Bottom bar: Copyright + WhatsApp badge ── */}
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <p
             className="text-base leading-relaxed md:text-lg lg:text-xl"
             style={{ color: "#dddddd" }}

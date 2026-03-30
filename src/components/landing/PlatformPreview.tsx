@@ -127,14 +127,7 @@ function BrowserMockup() {
         }}
       >
         {/* ── Stat cards ── */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: 12,
-            marginBottom: 16,
-          }}
-        >
+        <div className="mb-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
           {[
             { label: "Total Students", value: "1,234" },
             { label: "Total Views", value: "45,678" },
@@ -319,14 +312,7 @@ export default function PlatformPreview() {
     >
       {/* ── Main content ── */}
       <div
-        className="relative z-10 mx-auto max-w-[1440px]"
-        style={{
-          padding: "120px 80px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: 64,
-        }}
+        className="relative z-10 mx-auto flex max-w-[1440px] flex-col items-center gap-10 px-5 py-[80px] md:gap-14 md:px-10 md:py-[100px] lg:gap-16 lg:px-20 lg:py-[120px]"
       >
         {/* ── Header ── */}
         <div
@@ -389,16 +375,10 @@ export default function PlatformPreview() {
 
         {/* ── Main card ── */}
         <div
+          className="flex w-full flex-col gap-8 overflow-hidden px-5 py-8 md:gap-10 md:px-10 md:py-10 lg:gap-12 lg:px-16 lg:py-16"
           style={{
-            width: "100%",
             background: "linear-gradient(180deg, #4C4BE0 0%, #1B1A4E 100%)",
             borderRadius: 32,
-            padding: 64,
-            display: "flex",
-            flexDirection: "column",
-            gap: 48,
-            position: "relative",
-            overflow: "hidden",
           }}
         >
           {/* Background glow ellipse */}
@@ -419,12 +399,7 @@ export default function PlatformPreview() {
 
           {/* ── Content row ── */}
           <div
-            className="relative z-10"
-            style={{
-              display: "flex",
-              gap: 40,
-              alignItems: "flex-start",
-            }}
+            className="relative z-10 flex flex-col gap-8 md:flex-row md:items-start md:gap-10"
           >
             {/* Left: timeline + service name */}
             <div
