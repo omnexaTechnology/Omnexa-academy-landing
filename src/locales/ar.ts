@@ -1,6 +1,11 @@
 export default {
   nav: {
     home: "الرئيسية",
+    about: "عن أومنيكسا",
+    plans: "الخطط",
+    contact: "تواصل معنا",
+    signUp: "إنشاء حساب",
+    signIn: "تسجيل الدخول",
     features: "المميزات",
     pricing: "الأسعار",
     faq: "الأسئلة الشائعة",

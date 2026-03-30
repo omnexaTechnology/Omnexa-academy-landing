@@ -28,6 +28,7 @@ export default function ContactSection() {
 
   return (
     <section
+      id="contact"
       className="w-full px-5 py-[80px] md:px-10 md:py-[120px]"
       dir={isRtl ? "rtl" : "ltr"}
     >

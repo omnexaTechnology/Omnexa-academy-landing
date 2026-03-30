@@ -150,6 +150,7 @@ export default function FAQSection() {
 
   return (
     <section
+      id="faq"
       className="relative w-full overflow-hidden px-5 py-[80px] md:px-10 md:py-[120px]"
       style={{
         background:
