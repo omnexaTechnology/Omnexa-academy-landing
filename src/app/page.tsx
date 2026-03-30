@@ -3,6 +3,7 @@ import HeroSection from "@/components/landing/HeroSection";
 import AboutSection from "@/components/landing/AboutSection";
 import FeaturesSection from "@/components/landing/FeaturesSection";
 import PlatformPreview from "@/components/landing/PlatformPreview";
+import JoiningOmnexaSection from "@/components/landing/JoiningOmnexaSection";
 import DashboardPreview from "@/components/landing/DashboardPreview";
 import StepsSection from "@/components/landing/StepsSection";
 import PricingSection from "@/components/landing/PricingSection";
@@ -17,6 +18,7 @@ export default function Home() {
       <AboutSection />
       <FeaturesSection />
       <PlatformPreview />
+      <JoiningOmnexaSection />
       <DashboardPreview />
       <StepsSection />
       <PricingSection />

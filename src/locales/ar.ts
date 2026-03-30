@@ -77,6 +77,36 @@ export default {
       },
     },
   },
+  joiningOmnexa: {
+    headingHighlight: "كيفية إنشاء حساب",
+    headingNormal: " على أومنيكسا ليرن؟",
+    subtitlePrefix: "انضم إلى أومنيكسا ليرن في ",
+    subtitleHighlight1: "خطوات بسيطة",
+    subtitleMiddle: " وابدأ في ",
+    subtitleHighlight2: "إدارة أكاديميتك الرقمية",
+    subtitleSuffix: " بكل سهولة.",
+    cta: "أنشئ أكاديميتك",
+    step1: {
+      title: "إنشاء حساب",
+      description:
+        "أدخل معلوماتك الأساسية وابدأ رحلتك لإنشاء أكاديميتك الرقمية بسهولة.",
+    },
+    step2: {
+      title: "اختر نوع الحساب",
+      description:
+        "اختر نشاطك: أكاديمية، مركز تدريب، أو معلم/مدرب مستقل.",
+    },
+    step3: {
+      title: "إعداد منصتك",
+      description:
+        "اختر اسم منصتك وتخصصها وعدد الطلاب والمعلمين وحدد القالب المناسب.",
+    },
+    step4: {
+      title: "اختر خطتك",
+      description:
+        "اختر الخطة التي تناسب احتياجاتك وأطلق أكاديميتك الرقمية في دقائق بدون أي تعقيد.",
+    },
+  },
   dashboardPreview: {
     title: "لوحة تحكم إدارية قوية",
     description:

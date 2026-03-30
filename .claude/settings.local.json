@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Figma__get_design_context",
+      "mcp__Figma__get_metadata",
+      "mcp__Figma__get_screenshot",
+      "WebFetch(domain:www.figma.com)",
+      "WebFetch(domain:embed.figma.com)",
+      "Bash(npm run:*)"
+    ]
+  }
+}

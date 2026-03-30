@@ -77,6 +77,36 @@ export default {
       },
     },
   },
+  joiningOmnexa: {
+    headingHighlight: "How to create account",
+    headingNormal: " on omnexa learn?",
+    subtitlePrefix: "Join omnexa learn in ",
+    subtitleHighlight1: "simple steps",
+    subtitleMiddle: " and start ",
+    subtitleHighlight2: "managing your digital academy",
+    subtitleSuffix: " with ease.",
+    cta: "Create Your Academy",
+    step1: {
+      title: "Create Account",
+      description:
+        "Enter your basic information and start your journey to easily create your digital academy.",
+    },
+    step2: {
+      title: "Choose Account Type",
+      description:
+        "Choose your activity: Academy, Training Center, or Individual Teacher/Trainer.",
+    },
+    step3: {
+      title: "Set Up Your Platform",
+      description:
+        "Choose your platform name, specialization, number of students and teachers, and select template.",
+    },
+    step4: {
+      title: "Choose Your Plan",
+      description:
+        "Select the plan that fits your needs and launch your digital academy in minutes, hassle-free.",
+    },
+  },
   dashboardPreview: {
     title: "Powerful Admin Dashboard",
     description:
