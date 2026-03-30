@@ -12,7 +12,11 @@
       "mcp__mcp-registry__search_mcp_registry",
       "Bash(npx tsc:*)",
       "Bash(npx next:*)",
-      "Bash(ls \"D:\\\\Programming\\\\Work\\\\Omnexa\\\\Omnexa-academy-landing\\\\.claude\\\\worktrees\\\\festive-mclean\\\\public\\\\images\"\" 2>/dev/null || echo \"no images dir \")"
+      "Bash(ls \"D:\\\\Programming\\\\Work\\\\Omnexa\\\\Omnexa-academy-landing\\\\.claude\\\\worktrees\\\\festive-mclean\\\\public\\\\images\"\" 2>/dev/null || echo \"no images dir \")",
+      "Bash(find /d/Programming/Work/Omnexa/Omnexa-academy-landing/.claude/worktrees/nice-bartik -type f -name *pricing* -o -name *plan* -o -name *subscription*)",
+      "Bash(xargs grep:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(netstat -ano)"
     ]
   }
 }
