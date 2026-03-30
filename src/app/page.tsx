@@ -8,7 +8,7 @@ import PlansSection from "@/components/sections/plans";
 import DashboardPreview from "@/components/landing/DashboardPreview";
 import StepsSection from "@/components/landing/StepsSection";
 import PricingSection from "@/components/landing/PricingSection";
-import FAQSection from "@/components/landing/FAQSection";
+import FAQSection from "@/components/sections/FAQ";
 import Footer from "@/components/landing/Footer";
 
 export default function Home() {
@@ -21,10 +21,10 @@ export default function Home() {
       <PlatformPreview />
       <JoiningOmnexaSection />
       <PlansSection />
+      <FAQSection />
       <DashboardPreview />
       <StepsSection />
       <PricingSection />
-      <FAQSection />
       <Footer />
     </main>
   );
