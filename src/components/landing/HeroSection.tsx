@@ -220,10 +220,10 @@ export default function HeroSection() {
       </div>
 
       {/* ── Main content ── */}
-      <div className="relative z-10 mx-auto max-w-[1440px] px-5 sm:px-10 xl:px-20 pt-16">
+      <div className="relative z-10 mx-auto max-w-[1440px] px-5 pt-10 sm:px-10 md:pt-16 xl:px-20">
         {/* Text + CTA */}
-        <div className="mx-auto flex flex-col items-center gap-[56px] text-center max-w-[1062px]">
-          <div className="flex flex-col items-center gap-[56px] w-full">
+        <div className="mx-auto flex max-w-[1062px] flex-col items-center gap-8 text-center md:gap-[56px]">
+          <div className="flex w-full flex-col items-center gap-6 md:gap-[56px]">
             {/* Headline */}
             <h1
               className="capitalize leading-tight sm:leading-[96px]"
@@ -244,7 +244,7 @@ export default function HeroSection() {
               className="mx-auto"
               style={{
                 fontSize: "clamp(1rem, 2.5vw, 24px)",
-                lineHeight: "48px",
+                lineHeight: "clamp(28px, 5vw, 48px)",
                 color: "#636363",
                 maxWidth: 834,
               }}
@@ -260,12 +260,12 @@ export default function HeroSection() {
             style={{
               background: "linear-gradient(90deg, #4c4be0 0%, #0098df 100%)",
               borderRadius: 40,
-              height: 80,
+              minHeight: 56,
               padding: "10px 24px",
               color: "white",
               fontSize: "clamp(1rem, 2vw, 24px)",
               fontWeight: 600,
-              lineHeight: "48px",
+              lineHeight: "1.5",
               textDecoration: "none",
               whiteSpace: "nowrap",
               boxShadow: "0 8px 32px rgba(76,75,224,0.25)",
@@ -276,11 +276,11 @@ export default function HeroSection() {
         </div>
 
         {/* ── People / images section ── */}
-        <div className="relative mx-auto mt-14 flex items-center justify-center gap-4 xl:gap-6 max-w-[1032px]">
-          {/* Person 1 — tall pill */}
+        <div className="relative mx-auto mt-8 flex w-full max-w-[1032px] items-center justify-center gap-3 overflow-hidden md:mt-14 md:gap-4 xl:gap-6">
+          {/* Person 1 — tall pill, hidden on mobile */}
           <div
-            className="relative shrink-0 overflow-hidden"
-            style={{ width: 240, height: 364, borderRadius: 324 }}
+            className="relative hidden shrink-0 overflow-hidden md:block md:h-[280px] md:w-[180px] lg:h-[364px] lg:w-[240px]"
+            style={{ borderRadius: 324 }}
           >
             <Image
               alt="Omnexa Academy student"
@@ -293,12 +293,11 @@ export default function HeroSection() {
 
           {/* Column 2 — portrait + circle */}
           <div
-            className="flex shrink-0 flex-col items-center gap-6"
-            style={{ width: 240 }}
+            className="flex w-[140px] shrink-0 flex-col items-center gap-4 md:w-[180px] md:gap-5 lg:w-[240px] lg:gap-6"
           >
             <div
-              className="relative overflow-hidden"
-              style={{ width: 200, height: 280, borderRadius: 124 }}
+              className="relative w-full overflow-hidden"
+              style={{ height: 180, borderRadius: 124 }}
             >
               <Image
                 alt="Omnexa Academy student"
@@ -310,7 +309,7 @@ export default function HeroSection() {
             </div>
             <div
               className="relative overflow-hidden"
-              style={{ width: 140, height: 140, borderRadius: "50%" }}
+              style={{ width: 90, height: 90, borderRadius: "50%" }}
             >
               <Image
                 alt="Omnexa Academy student"
@@ -339,8 +338,7 @@ export default function HeroSection() {
 
           {/* Column 3 — speech bubble + portrait */}
           <div
-            className="relative flex shrink-0 flex-col items-center"
-            style={{ width: 240, gap: 32 }}
+            className="relative flex w-[140px] shrink-0 flex-col items-center gap-4 md:w-[180px] md:gap-6 lg:w-[240px] lg:gap-8"
           >
             {/* Speech bubble card + triangle pointer */}
             <div className="relative w-full">
@@ -349,15 +347,15 @@ export default function HeroSection() {
                 style={{
                   backgroundColor: "#b0dff5",
                   borderRadius: 80,
-                  padding: "16px 8px",
+                  padding: "12px 8px",
                 }}
               >
                 <p
                   className="text-center"
                   style={{
                     color: "#00354e",
-                    fontSize: 16,
-                    lineHeight: "24px",
+                    fontSize: 13,
+                    lineHeight: "20px",
                   }}
                 >
                   {t("speechBubble")}
@@ -384,8 +382,8 @@ export default function HeroSection() {
 
             {/* Portrait */}
             <div
-              className="relative overflow-hidden"
-              style={{ width: 208, height: 280, borderRadius: 124, marginTop: 20 }}
+              className="relative w-full overflow-hidden"
+              style={{ height: 180, borderRadius: 124, marginTop: 16 }}
             >
               <Image
                 alt="Omnexa Academy student"
@@ -396,10 +394,10 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Person 4 — tall pill */}
+          {/* Person 4 — tall pill, hidden on mobile */}
           <div
-            className="relative shrink-0 overflow-hidden"
-            style={{ width: 240, height: 364, borderRadius: 324 }}
+            className="relative hidden shrink-0 overflow-hidden md:block md:h-[280px] md:w-[180px] lg:h-[364px] lg:w-[240px]"
+            style={{ borderRadius: 324 }}
           >
             <Image
               alt="Omnexa Academy student"

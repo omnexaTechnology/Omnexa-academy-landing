@@ -13,7 +13,7 @@ export default function FeaturesSection() {
   return (
     <section
       id="features"
-      className="relative flex flex-col items-center gap-20 overflow-hidden px-20 py-[120px]"
+      className="relative flex flex-col items-center gap-12 overflow-hidden px-5 py-[80px] md:gap-16 md:px-10 md:py-[100px] lg:gap-20 lg:px-20 lg:py-[120px]"
       style={{
         background: "linear-gradient(to bottom, #3938a8, #161642)",
       }}
@@ -30,7 +30,7 @@ export default function FeaturesSection() {
 
       <div className="flex w-full flex-col items-center gap-20">
         {/* Top row: heading + main feature card */}
-        <div className="flex w-full items-start gap-14">
+        <div className="flex w-full flex-col items-start gap-10 md:flex-row md:gap-14">
           {/* Left: title + description */}
           <div className="relative flex min-w-0 flex-1 flex-col gap-14">
             {/* Decorative stars */}
@@ -49,14 +49,14 @@ export default function FeaturesSection() {
             </div>
 
             <h2
-              className="text-[48px] font-semibold capitalize leading-normal text-white"
+              className="text-[28px] font-semibold capitalize leading-normal text-white md:text-[36px] lg:text-[48px]"
               style={{ fontFamily: "'IBM Plex Sans Arabic', sans-serif" }}
             >
               Why choose omnexa learn?
             </h2>
 
             <p
-              className="text-[24px] font-medium leading-[48px] text-[#ddd]"
+              className="text-[16px] font-medium leading-[32px] text-[#ddd] md:text-[20px] md:leading-[40px] lg:text-[24px] lg:leading-[48px]"
               style={{ fontFamily: "'IBM Plex Sans Arabic', sans-serif" }}
             >
               Omnexa learn is more than an e-learning platform. It&apos;s a
@@ -84,13 +84,13 @@ export default function FeaturesSection() {
             </div>
             <div className="flex w-full flex-col items-center justify-center gap-8 text-center">
               <p
-                className="w-full text-[32px] font-semibold capitalize leading-[64px] text-[#f8f8f8]"
+                className="w-full text-[22px] font-semibold capitalize leading-[40px] text-[#f8f8f8] md:text-[28px] md:leading-[48px] lg:text-[32px] lg:leading-[64px]"
                 style={{ fontFamily: "'IBM Plex Sans Arabic', sans-serif" }}
               >
                 Quick launch for your academy
               </p>
               <p
-                className="w-full text-[24px] font-normal leading-[48px] text-[#ddd]"
+                className="w-full text-[16px] font-normal leading-[32px] text-[#ddd] md:text-[20px] md:leading-[40px] lg:text-[24px] lg:leading-[48px]"
                 style={{ fontFamily: "'IBM Plex Sans Arabic', sans-serif" }}
               >
                 Launch your platform in minutes and start teaching.
@@ -101,7 +101,7 @@ export default function FeaturesSection() {
 
         {/* Bottom row: three feature cards */}
         <div
-          className="flex w-full items-center gap-6"
+          className="flex w-full flex-col items-center gap-6 md:flex-row"
           style={{ background: "rgba(237, 237, 252, 0.04)" }}
         >
           {/* Students Platform */}
@@ -124,13 +124,13 @@ export default function FeaturesSection() {
             </div>
             <div className="flex w-full flex-col items-center justify-center gap-8 text-center">
               <p
-                className="w-full text-[32px] font-semibold capitalize leading-[56px] text-[#f8f8f8]"
+                className="w-full text-[22px] font-semibold capitalize leading-[40px] text-[#f8f8f8] md:text-[28px] md:leading-[48px] lg:text-[32px] lg:leading-[56px]"
                 style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}
               >
                 students platform
               </p>
               <p
-                className="w-full text-[24px] font-normal leading-[48px] text-[#ddd]"
+                className="w-full text-[16px] font-normal leading-[32px] text-[#ddd] md:text-[20px] md:leading-[40px] lg:text-[24px] lg:leading-[48px]"
                 style={{ fontFamily: "'IBM Plex Sans Arabic', sans-serif" }}
               >
                 A professional platform to present your courses and learning
@@ -159,13 +159,13 @@ export default function FeaturesSection() {
             </div>
             <div className="flex w-full flex-col items-center justify-center gap-8 text-center">
               <p
-                className="w-full text-[32px] font-semibold capitalize leading-[64px] text-[#f8f8f8]"
+                className="w-full text-[22px] font-semibold capitalize leading-[40px] text-[#f8f8f8] md:text-[28px] md:leading-[48px] lg:text-[32px] lg:leading-[64px]"
                 style={{ fontFamily: "'IBM Plex Sans Arabic', sans-serif" }}
               >
                 Smart Dashboard
               </p>
               <p
-                className="w-full text-[24px] font-normal leading-[48px] text-[#ddd]"
+                className="w-full text-[16px] font-normal leading-[32px] text-[#ddd] md:text-[20px] md:leading-[40px] lg:text-[24px] lg:leading-[48px]"
                 style={{ fontFamily: "'IBM Plex Sans Arabic', sans-serif" }}
               >
                 Smart dashboard to manage your academy and track courses,
@@ -194,13 +194,13 @@ export default function FeaturesSection() {
             </div>
             <div className="flex w-full flex-col items-center justify-center gap-8 text-center">
               <p
-                className="w-full text-[32px] font-semibold capitalize leading-[64px] text-[#f8f8f8]"
+                className="w-full text-[22px] font-semibold capitalize leading-[40px] text-[#f8f8f8] md:text-[28px] md:leading-[48px] lg:text-[32px] lg:leading-[64px]"
                 style={{ fontFamily: "'IBM Plex Sans Arabic', sans-serif" }}
               >
                 Reliable infrastructure
               </p>
               <p
-                className="w-full text-[24px] font-normal leading-[48px] text-[#ddd]"
+                className="w-full text-[16px] font-normal leading-[32px] text-[#ddd] md:text-[20px] md:leading-[40px] lg:text-[24px] lg:leading-[48px]"
                 style={{ fontFamily: "'IBM Plex Sans Arabic', sans-serif" }}
               >
                 We handle hosting, updates, and security to ensure your platform

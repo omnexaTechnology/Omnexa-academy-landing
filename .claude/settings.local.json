@@ -8,7 +8,10 @@
       "WebFetch(domain:embed.figma.com)",
       "Bash(npm run:*)",
       "Bash(curl -sv --max-time 10 \"http://localhost:3845/assets/a53d3314b407a80cecfbfb2fd64396dc5d4e52c9.svg\")",
-      "Bash(curl -s \"http://localhost:3845/assets/a53d3314b407a80cecfbfb2fd64396dc5d4e52c9.svg\")"
+      "Bash(curl -s \"http://localhost:3845/assets/a53d3314b407a80cecfbfb2fd64396dc5d4e52c9.svg\")",
+      "mcp__mcp-registry__search_mcp_registry",
+      "Bash(npx tsc:*)",
+      "Bash(npx next:*)"
     ]
   }
 }

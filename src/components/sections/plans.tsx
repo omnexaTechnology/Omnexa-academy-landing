@@ -34,7 +34,6 @@ function FeatureItem({ text }: { text: string }) {
           fontSize: 20,
           lineHeight: "36px",
           color: "#f8f8f8",
-          whiteSpace: "nowrap",
         }}
       >
         {text}
@@ -87,7 +86,6 @@ function DarkCard({ name, price, perMonth, features, cta }: DarkCardProps) {
               fontSize: 24,
               lineHeight: "48px",
               color: "#ffffff",
-              whiteSpace: "nowrap",
             }}
           >
             {name}
@@ -210,7 +208,6 @@ function HighlightCard({
               fontSize: 24,
               lineHeight: "48px",
               color: "#ffffff",
-              whiteSpace: "nowrap",
             }}
           >
             {name}
@@ -345,8 +342,7 @@ export default function PlansSection() {
 
       {/* ── Main content ── */}
       <div
-        className="relative z-10 mx-auto max-w-[1440px] flex flex-col items-center"
-        style={{ padding: "120px 80px", gap: 80 }}
+        className="relative z-10 mx-auto flex max-w-[1440px] flex-col items-center gap-12 px-5 py-[80px] md:gap-16 md:px-10 md:py-[100px] lg:gap-[80px] lg:px-20 lg:py-[120px]"
       >
         {/* ── Header ── */}
         <div className="relative flex flex-col items-center justify-center gap-[56px] w-full">
