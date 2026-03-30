@@ -1,12 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 
-// Figma Dev Mode asset URLs (localhost:3845 — replace with CDN URLs in production)
 const ASSETS = {
-  stars:
-    "http://localhost:3845/assets/a53d3314b407a80cecfbfb2fd64396dc5d4e52c9.svg",
+  stars: "/assets/stars.svg",
 };
 
 const FAQ_KEYS = ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8"] as const;
@@ -170,10 +169,11 @@ export default function FAQSection() {
         }}
         aria-hidden="true"
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           alt=""
           src={ASSETS.stars}
+          width={78}
+          height={78}
           className="block size-full"
         />
       </div>

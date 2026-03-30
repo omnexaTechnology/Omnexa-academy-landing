@@ -1,24 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import { SIGNUP_URL } from "@/lib/constants";
 
-// Figma Dev Mode asset URLs (localhost:3845 — replace with CDN URLs in production)
 const ASSETS = {
-  ellipseRight:
-    "http://localhost:3845/assets/ec1ff335663575bbeaf830eb05f4d7977176a816.svg",
-  ellipseLeft:
-    "http://localhost:3845/assets/3876d34e435c2b0ad5378f976d7ff771224a2fbb.svg",
-  bgDecoration:
-    "http://localhost:3845/assets/d099bf664735f451ac8a6b14251e57864a21b00c.svg",
-  stars:
-    "http://localhost:3845/assets/a53d3314b407a80cecfbfb2fd64396dc5d4e52c9.svg",
-  cardBgDark:
-    "http://localhost:3845/assets/3fbef719fc37fd608b7c2e442950c59c07c53398.svg",
-  checkIcon:
-    "http://localhost:3845/assets/c31525b85f58073d17f800bbcb9e1a6ac0e1d0bd.svg",
-  cardBgHighlight:
-    "http://localhost:3845/assets/6eb83ded0faf6fe5b99af4c6cc084a69efae28f5.svg",
+  ellipseRight: "/assets/plans-ellipse-right.svg",
+  ellipseLeft: "/assets/plans-ellipse-left.svg",
+  bgDecoration: "/assets/plans-bg-decoration.svg",
+  stars: "/assets/stars.svg",
+  cardBgDark: "/assets/plans-card-bg-dark.svg",
+  checkIcon: "/assets/plans-check-icon.svg",
+  cardBgHighlight: "/assets/plans-card-bg-highlight.svg",
 };
 
 // ── Feature row ───────────────────────────────────────────────────────────────
@@ -27,9 +20,9 @@ function FeatureItem({ text }: { text: string }) {
   return (
     <div className="flex items-center gap-[8px] w-full">
       <div className="relative shrink-0" style={{ width: 18.457, height: 18.457 }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           alt=""
+          fill
           src={ASSETS.checkIcon}
           className="absolute block size-full max-w-none"
         />
@@ -72,9 +65,9 @@ function DarkCard({ name, price, perMonth, features, cta }: DarkCardProps) {
         className="pointer-events-none absolute"
         style={{ width: 411, height: 562, left: -0.33, top: -0.36 }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           alt=""
+          fill
           src={ASSETS.cardBgDark}
           className="absolute block size-full max-w-none"
         />
@@ -195,9 +188,9 @@ function HighlightCard({
         className="pointer-events-none absolute"
         style={{ width: 416.002, height: 637.779, left: -5.67, top: 0 }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           alt=""
+          fill
           src={ASSETS.cardBgHighlight}
           className="absolute block size-full max-w-none"
         />
@@ -304,12 +297,11 @@ export default function PlansSection() {
         style={{ right: 0, top: 109, width: 340, height: 340 }}
       >
         <div className="absolute" style={{ inset: "-65.88%" }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             alt=""
+            fill
             src={ASSETS.ellipseRight}
             className="block size-full max-w-none"
-            style={{ width: "100%", height: "100%" }}
           />
         </div>
       </div>
@@ -321,12 +313,11 @@ export default function PlansSection() {
         style={{ left: -78, width: 840, height: 840, top: "calc(50% + 109.5px)", transform: "translateY(-50%)" }}
       >
         <div className="absolute" style={{ inset: "-26.67%" }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             alt=""
+            fill
             src={ASSETS.ellipseLeft}
             className="block size-full max-w-none"
-            style={{ width: "100%", height: "100%" }}
           />
         </div>
       </div>
@@ -348,8 +339,7 @@ export default function PlansSection() {
             height: 61,
           }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img alt="" src={ASSETS.stars} className="w-full h-full" />
+          <Image alt="" src={ASSETS.stars} width={61} height={61} />
         </div>
       </div>
 
@@ -366,9 +356,9 @@ export default function PlansSection() {
             className="pointer-events-none absolute"
             style={{ inset: "-54.24% 40% 38.12% 38.13%" }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               alt=""
+              fill
               src={ASSETS.bgDecoration}
               className="absolute block size-full max-w-none"
             />
