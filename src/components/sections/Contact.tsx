@@ -1,19 +1,16 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 
-// Figma Dev Mode asset URLs (localhost:3845 — replace with CDN URLs in production)
 const ASSETS = {
-  stars:
-    "http://localhost:3845/assets/a53d3314b407a80cecfbfb2fd64396dc5d4e52c9.svg",
-  whatsapp:
-    "http://localhost:3845/assets/0d6318b92e1c044f4138525e2ecf897ca86ff1fa.svg",
+  stars: "/assets/stars.svg",
+  whatsapp: "/assets/whatsapp.svg",
 };
 
 function WhatsAppIcon() {
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
+    <Image
       src={ASSETS.whatsapp}
       alt=""
       aria-hidden="true"
@@ -55,10 +52,11 @@ export default function ContactSection() {
           }}
           aria-hidden="true"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             alt=""
             src={ASSETS.stars}
+            width={78}
+            height={78}
             className="block size-full"
           />
         </div>

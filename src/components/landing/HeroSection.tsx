@@ -1,20 +1,14 @@
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { SIGNUP_URL } from "@/lib/constants";
 
-// Figma Dev Mode asset URLs (localhost:3845 — replace with CDN URLs in production)
 const ASSETS = {
-  chevron:
-    "http://localhost:3845/assets/21c21e9a9f447a29f951109e17a6657dadef2835.png",
-  person1:
-    "http://localhost:3845/assets/938676fc1c262d10e291685f1bce2cb2b1680261.png",
-  person2Portrait:
-    "http://localhost:3845/assets/97beed4c524ae4f49cc2c97a239c7521e462e8fa.png",
-  person2Circle:
-    "http://localhost:3845/assets/b5fdc39cb0cdca3cde371e2fceea3d18e4ce1c24.png",
-  person3Portrait:
-    "http://localhost:3845/assets/2b2b67deec0eeae0429ae835fe91b474394255b3.png",
-  person4:
-    "http://localhost:3845/assets/5d35642adda73473695122c1d08a06c14c0421ac.png",
+  chevron: "/assets/hero-chevron.png",
+  person1: "/assets/hero-person1.png",
+  person2Portrait: "/assets/hero-person2-portrait.png",
+  person2Circle: "/assets/hero-person2-circle.png",
+  person3Portrait: "/assets/hero-person3-portrait.png",
+  person4: "/assets/hero-person4.png",
 };
 
 function StarsIcon({ className }: { className?: string }) {
@@ -169,11 +163,12 @@ export default function HeroSection() {
             style={{ left: 0, top, width: 338, height: 353.43 }}
           >
             <div style={{ transform: "rotate(90deg)" }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 alt=""
                 src={ASSETS.chevron}
-                style={{ width: 353.43, height: 338, objectFit: "cover" }}
+                width={354}
+                height={338}
+                style={{ objectFit: "cover" }}
               />
             </div>
           </div>
@@ -193,11 +188,12 @@ export default function HeroSection() {
             style={{ left: 0, top, width: 338, height: 353.43 }}
           >
             <div style={{ transform: "rotate(90deg) scaleY(-1)" }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 alt=""
                 src={ASSETS.chevron}
-                style={{ width: 353.43, height: 338, objectFit: "cover" }}
+                width={354}
+                height={338}
+                style={{ objectFit: "cover" }}
               />
             </div>
           </div>
@@ -286,11 +282,12 @@ export default function HeroSection() {
             className="relative shrink-0 overflow-hidden"
             style={{ width: 240, height: 364, borderRadius: 324 }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              alt=""
+            <Image
+              alt="Omnexa Academy student"
               src={ASSETS.person1}
-              className="absolute inset-0 w-full h-full object-cover"
+              fill
+              style={{ objectFit: "cover" }}
+              priority
             />
           </div>
 
@@ -303,22 +300,23 @@ export default function HeroSection() {
               className="relative overflow-hidden"
               style={{ width: 200, height: 280, borderRadius: 124 }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                alt=""
+              <Image
+                alt="Omnexa Academy student"
                 src={ASSETS.person2Portrait}
-                className="absolute inset-0 w-full h-full object-cover"
+                fill
+                style={{ objectFit: "cover" }}
+                priority
               />
             </div>
             <div
               className="relative overflow-hidden"
               style={{ width: 140, height: 140, borderRadius: "50%" }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                alt=""
+              <Image
+                alt="Omnexa Academy student"
                 src={ASSETS.person2Circle}
-                className="absolute inset-0 w-full h-full object-cover"
+                fill
+                style={{ objectFit: "cover" }}
               />
             </div>
           </div>
@@ -389,11 +387,11 @@ export default function HeroSection() {
               className="relative overflow-hidden"
               style={{ width: 208, height: 280, borderRadius: 124, marginTop: 20 }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                alt=""
+              <Image
+                alt="Omnexa Academy student"
                 src={ASSETS.person3Portrait}
-                className="absolute inset-0 w-full h-full object-cover"
+                fill
+                style={{ objectFit: "cover" }}
               />
             </div>
           </div>
@@ -403,11 +401,11 @@ export default function HeroSection() {
             className="relative shrink-0 overflow-hidden"
             style={{ width: 240, height: 364, borderRadius: 324 }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              alt=""
+            <Image
+              alt="Omnexa Academy student"
               src={ASSETS.person4}
-              className="absolute inset-0 w-full h-full object-cover"
+              fill
+              style={{ objectFit: "cover" }}
             />
           </div>
         </div>

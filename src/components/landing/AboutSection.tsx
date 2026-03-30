@@ -1,14 +1,11 @@
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { SIGNUP_URL } from "@/lib/constants";
 
-// Figma Dev Mode asset URLs (localhost:3845 — replace with CDN URLs in production)
 const ASSETS = {
-  imgLeft:
-    "http://localhost:3845/assets/6f8b2eec27bb1ae627245150c6889627c1850c4c.png",
-  imgCenter:
-    "http://localhost:3845/assets/ad1103ecba90f38f8d3438cc0450b0d2606f4be4.png",
-  imgRight:
-    "http://localhost:3845/assets/5ad3068b6807e0c127a98059ebcf8d7e3f6cd83f.png",
+  imgLeft: "/assets/about-left.png",
+  imgCenter: "/assets/about-center.png",
+  imgRight: "/assets/about-right.png",
 };
 
 function StarsIcon({ className }: { className?: string }) {
@@ -330,18 +327,23 @@ export default function AboutSection() {
           }}
         >
           {/* Left image — tall */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            alt=""
-            src={ASSETS.imgLeft}
+          <div
             style={{
               flex: "1 0 0",
               height: 440,
               borderRadius: 21.684,
-              objectFit: "cover",
+              overflow: "hidden",
+              position: "relative",
               minWidth: 0,
             }}
-          />
+          >
+            <Image
+              alt="Omnexa Academy students learning together"
+              src={ASSETS.imgLeft}
+              fill
+              style={{ objectFit: "cover" }}
+            />
+          </div>
 
           {/* Center column — star decoration + shorter image */}
           <div
@@ -359,32 +361,42 @@ export default function AboutSection() {
             <div className="mb-3" style={{ width: 62, height: 62, flexShrink: 0 }}>
               <FourPointedStar className="w-full h-full" />
             </div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              alt=""
-              src={ASSETS.imgCenter}
+            <div
               style={{
                 width: "100%",
                 height: 280,
                 borderRadius: 21.684,
-                objectFit: "cover",
+                overflow: "hidden",
+                position: "relative",
               }}
-            />
+            >
+              <Image
+                alt="Omnexa Academy online course"
+                src={ASSETS.imgCenter}
+                fill
+                style={{ objectFit: "cover" }}
+              />
+            </div>
           </div>
 
           {/* Right image — tall, fixed width */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            alt=""
-            src={ASSETS.imgRight}
+          <div
             style={{
               width: 324,
               flexShrink: 0,
               height: 440,
               borderRadius: 21.684,
-              objectFit: "cover",
+              overflow: "hidden",
+              position: "relative",
             }}
-          />
+          >
+            <Image
+              alt="Omnexa Academy instructor"
+              src={ASSETS.imgRight}
+              fill
+              style={{ objectFit: "cover" }}
+            />
+          </div>
         </div>
       </div>
     </section>

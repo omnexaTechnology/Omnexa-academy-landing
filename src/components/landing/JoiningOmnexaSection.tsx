@@ -1,20 +1,15 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import { SIGNUP_URL } from "@/lib/constants";
 
-// Figma Dev Mode asset URLs (localhost:3845 — replace with CDN URLs in production)
 const ASSETS = {
-  ellipsePurple:
-    "http://localhost:3845/assets/24f22846b97dfcbe05c39d34aafe1bfd59821fef.png",
-  ellipseBlue:
-    "http://localhost:3845/assets/54277fd04afd55bfb5566b130e49d192679f5dc6.png",
-  bgDecoration:
-    "http://localhost:3845/assets/d1485929b046ccc8568b6a2ecd5834c80aa62d5b.svg",
-  cardDecoration:
-    "http://localhost:3845/assets/99e8ba80af3bd7e1ca9803e44f46bb6790746e06.svg",
-  stars:
-    "http://localhost:3845/assets/a53d3314b407a80cecfbfb2fd64396dc5d4e52c9.svg",
+  ellipsePurple: "/assets/joining-ellipse-purple.png",
+  ellipseBlue: "/assets/joining-ellipse-blue.png",
+  bgDecoration: "/assets/joining-bg-decoration.svg",
+  cardDecoration: "/assets/joining-card-decoration.svg",
+  stars: "/assets/stars.svg",
 };
 
 // ── Step card ─────────────────────────────────────────────────────────────────
@@ -51,9 +46,9 @@ function StepCard({
           className="pointer-events-none absolute"
           style={{ inset: "33.54% 14.36% 33.47% 14.36%" }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             alt=""
+            fill
             src={ASSETS.cardDecoration}
             className="absolute block size-full max-w-none"
           />
@@ -89,9 +84,10 @@ function StepCard({
           className="pointer-events-none absolute opacity-80"
           style={{ width: 80, height: 80, left: -8, top: -8 }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             alt=""
+            width={80}
+            height={80}
             src={highlighted ? ASSETS.ellipseBlue : ASSETS.ellipsePurple}
             className="w-full h-full"
           />
@@ -169,8 +165,7 @@ export default function JoiningOmnexaSection() {
             height: 61,
           }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img alt="" src={ASSETS.stars} className="w-full h-full" />
+          <Image alt="" src={ASSETS.stars} width={61} height={61} />
         </div>
       </div>
 
@@ -192,9 +187,9 @@ export default function JoiningOmnexaSection() {
               bottom: "67.83%",
             }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               alt=""
+              fill
               src={ASSETS.bgDecoration}
               className="absolute block size-full max-w-none"
               style={{ transform: isRtl ? "scaleX(-1)" : undefined }}

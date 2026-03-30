@@ -1,17 +1,12 @@
-// Figma Dev Mode asset URLs (localhost:3845 — replace with CDN URLs in production)
+import Image from "next/image";
+
 const ASSETS = {
-  stars:
-    "http://localhost:3845/assets/a53d3314b407a80cecfbfb2fd64396dc5d4e52c9.svg",
-  rocketIcon:
-    "http://localhost:3845/assets/9cbe02b8f3d387b38192b81a3d098b189a3cd15d.svg",
-  studentsIcon:
-    "http://localhost:3845/assets/f3d503d1b922904570277f808423f6023835757b.svg",
-  dashboardIcon:
-    "http://localhost:3845/assets/3b7eb5e106e71c9c9c451b26cf30928a68c94ac9.svg",
-  infrastructureIcon:
-    "http://localhost:3845/assets/55f2c2bd1fc25313efe8a4ac8190a5dd24ad5547.svg",
-  decorativeCircle:
-    "http://localhost:3845/assets/9770005b92b98cd1526e1fcfc9fbe4d25414d707.svg",
+  stars: "/assets/stars.svg",
+  rocketIcon: "/assets/features-rocket.svg",
+  studentsIcon: "/assets/features-students.svg",
+  dashboardIcon: "/assets/features-dashboard.svg",
+  infrastructureIcon: "/assets/features-infrastructure.svg",
+  decorativeCircle: "/assets/features-decorative-circle.svg",
 };
 
 export default function FeaturesSection() {
@@ -25,8 +20,9 @@ export default function FeaturesSection() {
     >
       {/* Decorative circular graphic behind the title */}
       <div className="pointer-events-none absolute bottom-[82.74%] left-[5.56%] right-3/4 top-[5.01%]">
-        <img
+        <Image
           alt=""
+          fill
           className="absolute block size-full max-w-none"
           src={ASSETS.decorativeCircle}
         />
@@ -43,9 +39,10 @@ export default function FeaturesSection() {
                 className="flex-none"
                 style={{ transform: "scaleY(-1) rotate(-160.45deg)" }}
               >
-                <img
+                <Image
                   alt=""
-                  className="block size-[61px]"
+                  width={61}
+                  height={61}
                   src={ASSETS.stars}
                 />
               </div>
@@ -78,8 +75,9 @@ export default function FeaturesSection() {
             }}
           >
             <div className="relative size-20 overflow-hidden">
-              <img
+              <Image
                 alt="Quick launch icon"
+                fill
                 className="absolute block size-full max-w-none"
                 src={ASSETS.rocketIcon}
               />
@@ -116,8 +114,9 @@ export default function FeaturesSection() {
           >
             <div className="relative size-20 overflow-hidden">
               <div className="absolute inset-[0_0.15%]">
-                <img
+                <Image
                   alt="Students platform icon"
+                  fill
                   className="absolute block size-full max-w-none"
                   src={ASSETS.studentsIcon}
                 />
@@ -150,8 +149,9 @@ export default function FeaturesSection() {
           >
             <div className="relative size-20 overflow-hidden">
               <div className="absolute inset-[0.16%_0_9.84%_0]">
-                <img
+                <Image
                   alt="Smart dashboard icon"
+                  fill
                   className="absolute block size-full max-w-none"
                   src={ASSETS.dashboardIcon}
                 />
@@ -184,8 +184,9 @@ export default function FeaturesSection() {
           >
             <div className="relative size-20 overflow-hidden">
               <div className="absolute inset-[6.4%_12.78%_6.25%_12.75%]">
-                <img
+                <Image
                   alt="Reliable infrastructure icon"
+                  fill
                   className="absolute block size-full max-w-none"
                   src={ASSETS.infrastructureIcon}
                 />
