@@ -213,32 +213,50 @@ export default {
     },
   },
   faq: {
-    title: "Frequently Asked Questions",
+    titlePart1: "Frequently Asked ",
+    titleHighlight: "Questions",
+    subtitle:
+      "We've compiled the most common questions from teachers and educational centers about omnexa learn, so you can get started with confidence and make your decision easily.",
     items: {
       q1: {
-        question: "How do I get started with Omnexa Learn?",
+        question: "Who is omnexa learn for?",
         answer:
-          "Simply sign up for a free trial, set up your academy profile, and start creating courses. No credit card required for the trial period.",
+          "Omnexa learn is designed for teachers, trainers, and educational centers that want to create and manage a professional digital academy to showcase courses and track students easily.",
       },
       q2: {
-        question: "Can I use my own domain name?",
+        question: "How do students join the academy?",
         answer:
-          "Yes! All plans include the ability to connect a custom domain to your academy, giving it a fully branded experience for your students.",
+          "Students can join your academy by visiting your academy's public page and enrolling in your courses. You can also invite them directly via email or a unique link.",
       },
       q3: {
-        question: "What payment methods do you accept?",
+        question: "How do I join omnexa learn?",
         answer:
-          "We accept all major credit cards, PayPal, and bank transfers for annual plans. Payments are processed securely through Stripe.",
+          "Simply sign up on our website, complete your academy setup, choose a plan, and you're ready to start creating and publishing your courses.",
       },
       q4: {
-        question: "Can I migrate my existing courses?",
+        question: "Can I customize my site or template?",
         answer:
-          "Absolutely. We provide migration assistance tools and our support team can help you import content from other platforms.",
+          "Yes! Omnexa learn offers a range of templates and customization options so you can match your academy's branding with your logo, colors, and domain.",
       },
       q5: {
-        question: "Is there a limit to the number of courses I can create?",
+        question: "Do I need technical experience to use the platform?",
         answer:
-          "The Starter plan supports up to 3 courses. Professional and Enterprise plans offer unlimited course creation.",
+          "Not at all. Omnexa learn is built for educators, not developers. Our intuitive interface lets you set up and manage your academy without any technical knowledge.",
+      },
+      q6: {
+        question: "Does Omnexa provide technical support?",
+        answer:
+          "Yes, we provide dedicated technical support via email and live chat. Our team is ready to help you resolve any issues and get the most out of the platform.",
+      },
+      q7: {
+        question: "What tools does Omnexa offer to manage the academy?",
+        answer:
+          "Omnexa offers a comprehensive dashboard to manage students, courses, enrollments, payments, analytics, and communications — all from one place.",
+      },
+      q8: {
+        question: "Does the platform support payments and subscriptions?",
+        answer:
+          "Yes, the platform supports multiple payment methods and subscription models, allowing you to monetize your courses and manage recurring billing with ease.",
       },
     },
   },
