@@ -260,6 +260,15 @@ export default {
       },
     },
   },
+  contact: {
+    heading: "تواصل معنا بسهولة",
+    descriptionPart1:
+      "أومنيكسا ليرن مستعدة لمساعدتك في اختيار الخطة المناسبة أو البدء في أكاديميتك. ",
+    descriptionHighlight: "تواصل معنا عبر واتساب",
+    descriptionPart2: " للحصول على إرشادات خطوة بخطوة.",
+    buttonText: "تواصل معنا عبر واتساب",
+    whatsappUrl: "https://wa.me/1234567890",
+  },
   footer: {
     description:
       "تُمكّن Omnexa Learn المعلمين من بناء أكاديمياتهم الإلكترونية وتوسيعها بسهولة.",

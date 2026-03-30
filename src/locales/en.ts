@@ -260,6 +260,15 @@ export default {
       },
     },
   },
+  contact: {
+    heading: "Contact Us Easily",
+    descriptionPart1:
+      "The omnexa learn is ready to help you choose a plan or start your academy. ",
+    descriptionHighlight: "Contact us via WhatsApp",
+    descriptionPart2: " for step-by-step guidance.",
+    buttonText: "Contact us via WhatsApp",
+    whatsappUrl: "https://wa.me/1234567890",
+  },
   footer: {
     description:
       "Omnexa Learn empowers educators to build and scale their online academies with ease.",

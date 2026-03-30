@@ -5,6 +5,8 @@ import FeaturesSection from "@/components/landing/FeaturesSection";
 import PlatformPreview from "@/components/landing/PlatformPreview";
 import JoiningOmnexaSection from "@/components/landing/JoiningOmnexaSection";
 import PlansSection from "@/components/sections/plans";
+import FAQSection from "@/components/sections/FAQ";
+import ContactSection from "@/components/sections/Contact";
 import Footer from "@/components/landing/Footer";
 
 export default function Home() {
@@ -17,6 +19,8 @@ export default function Home() {
       <PlatformPreview />
       <JoiningOmnexaSection />
       <PlansSection />
+      <FAQSection />
+      <ContactSection />
       <Footer />
     </main>
   );
