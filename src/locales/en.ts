@@ -77,6 +77,72 @@ export default {
       },
     },
   },
+  plansSection: {
+    title: "Subscription ",
+    titleHighlight: "Plans",
+    subtitle: "Choose the plan that fits your digital academy",
+    description:
+      "We offer flexible plans to suit all academy and teacher needs. Pick the plan that works for you and start managing students and courses with ease.",
+    cta: "Subscribe Now",
+    perMonth: "/ Month",
+    starter: {
+      name: "Starter Plan",
+      price: "$29",
+      feature1: "1–2 teachers",
+      feature2: "Up to 50 students",
+      feature3: "Up to 5 courses",
+      feature4: "Basic analytics",
+      feature5: "Email support",
+    },
+    pro: {
+      name: "Pro Plan",
+      price: "$79",
+      feature1: "Up to 10 teachers",
+      feature2: "Up to 500 students",
+      feature3: "Unlimited courses",
+      feature4: "Advanced analytics",
+      feature5: "Priority support",
+    },
+    enterprise: {
+      name: "Enterprise Plan",
+      price: "$199",
+      feature1: "Unlimited teachers",
+      feature2: "Unlimited students",
+      feature3: "Unlimited courses",
+      feature4: "Custom integrations",
+      feature5: "Dedicated account manager",
+    },
+  },
+  joiningOmnexa: {
+    headingHighlight: "How to create account",
+    headingNormal: " on omnexa learn?",
+    subtitlePrefix: "Join omnexa learn in ",
+    subtitleHighlight1: "simple steps",
+    subtitleMiddle: " and start ",
+    subtitleHighlight2: "managing your digital academy",
+    subtitleSuffix: " with ease.",
+    cta: "Create Your Academy",
+    step1: {
+      title: "Create Account",
+      description:
+        "Enter your basic information and start your journey to easily create your digital academy.",
+    },
+    step2: {
+      title: "Choose Account Type",
+      description:
+        "Choose your activity: Academy, Training Center, or Individual Teacher/Trainer.",
+    },
+    step3: {
+      title: "Set Up Your Platform",
+      description:
+        "Choose your platform name, specialization, number of students and teachers, and select template.",
+    },
+    step4: {
+      title: "Choose Your Plan",
+      description:
+        "Select the plan that fits your needs and launch your digital academy in minutes, hassle-free.",
+    },
+  },
   dashboardPreview: {
     title: "Powerful Admin Dashboard",
     description:
