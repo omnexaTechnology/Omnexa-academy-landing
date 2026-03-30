@@ -55,7 +55,7 @@ interface DarkCardProps {
 function DarkCard({ name, price, perMonth, features, cta }: DarkCardProps) {
   return (
     <div
-      className="relative flex flex-1 flex-col items-center gap-[40px] overflow-hidden px-[24px] py-[32px] rounded-[24px] min-w-0"
+      className="relative flex flex-col lg:w-[32%] scale-95 opacity-90 h-full justify-between flex-1 items-center gap-[40px] overflow-hidden px-[24px] py-[32px] rounded-[24px] min-w-0 hover:scale-100 transition-all duration-300"
       style={{ background: "#1b1a4e" }}
     >
       {/* Card background decoration */}
@@ -93,7 +93,7 @@ function DarkCard({ name, price, perMonth, features, cta }: DarkCardProps) {
         </div>
 
         {/* Price */}
-        <p className="text-center w-full capitalize" style={{ lineHeight: 0 }}>
+        <p className="text-center w-full capitalize" style={{ lineHeight: "0" }}>
           <span
             style={{
               fontFamily: "IBM Plex Sans Arabic, sans-serif",
@@ -129,7 +129,7 @@ function DarkCard({ name, price, perMonth, features, cta }: DarkCardProps) {
       {/* CTA */}
       <a
         href={SIGNUP_URL}
-        className="relative z-10 flex items-center justify-center w-full rounded-[40px] transition-opacity hover:opacity-90"
+        className="relative z-10 mt-auto flex items-center justify-center w-full rounded-[40px] transition-opacity hover:opacity-90"
         style={{
           background: "linear-gradient(90deg, #4c4be0 0%, #0098df 100%)",
           height: 64,
@@ -173,7 +173,7 @@ function HighlightCard({
 }: HighlightCardProps) {
   return (
     <div
-      className="relative flex flex-1 flex-col items-center justify-between overflow-hidden px-[24px] py-[32px] rounded-[24px] min-w-0 lg:h-[640px]"
+      className="relative flex flex-col lg:w-[36%] scale-105 z-10 flex-1 h-full justify-between items-center justify-between overflow-hidden px-[24px] py-[32px] rounded-[24px] min-w-0 hover:scale-110 transition-all duration-300"
       style={{
         background: "linear-gradient(180deg, #4c4be0 0%, #0098df 100%)",
         border: "4px solid #ffffff",
@@ -251,7 +251,7 @@ function HighlightCard({
       {/* CTA — white with blue text */}
       <a
         href={SIGNUP_URL}
-        className="relative z-10 mt-[40px] lg:mt-0 flex items-center justify-center w-full rounded-[40px] transition-opacity hover:opacity-90"
+        className="relative z-10 mt-auto flex items-center justify-center w-full rounded-[40px] transition-opacity hover:opacity-90"
         style={{
           background: "#ffffff",
           height: 64,
@@ -286,7 +286,11 @@ export default function PlansSection() {
   const planKeys = ["starter", "pro", "enterprise"] as const;
 
   return (
-    <section id="plans" className="relative overflow-hidden bg-white">
+    <section
+      id="plans"
+      className="relative overflow-hidden"
+      style={{ background: "linear-gradient(180deg, #ffffff 0%, #eef0ff 100%)" }}
+    >
       {/* ── Right glow ellipse ── */}
       <div
         aria-hidden
@@ -319,33 +323,12 @@ export default function PlansSection() {
         </div>
       </div>
 
-      {/* ── Stars decoration ── */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute top-[64px] flex items-center justify-center"
-        style={{
-          [isRtl ? "right" : "left"]: 452,
-          width: 77.9,
-          height: 77.9,
-        }}
-      >
-        <div
-          style={{
-            transform: "scaleY(-1) rotate(-160.45deg)",
-            width: 61,
-            height: 61,
-          }}
-        >
-          <Image alt="" src={ASSETS.stars} width={61} height={61} />
-        </div>
-      </div>
-
       {/* ── Main content ── */}
       <div
         className="relative z-10 mx-auto flex max-w-[1440px] flex-col items-center gap-12 px-5 py-[80px] md:gap-16 md:px-10 md:py-[100px] lg:gap-[80px] lg:px-20 lg:py-[120px]"
       >
         {/* ── Header ── */}
-        <div className="relative flex flex-col items-center justify-center gap-[56px] w-full">
+        <div className="relative flex flex-col items-center gap-6 w-full">
           {/* Background title decoration */}
           <div
             aria-hidden
@@ -360,16 +343,28 @@ export default function PlansSection() {
             />
           </div>
 
-          {/* Title + subtitle */}
-          <div className="relative z-10 flex flex-col items-center gap-[56px] w-full">
-            {/* H2 */}
+          {/* Stars + Title label */}
+          <div className="relative z-10 flex flex-col items-center gap-2">
+            {/* Stars decoration */}
+            <div
+              aria-hidden
+              style={{
+                transform: "scaleY(-1) rotate(-160.45deg)",
+                width: 56,
+                height: 56,
+              }}
+            >
+              <Image alt="" src={ASSETS.stars} width={56} height={56} />
+            </div>
+
+            {/* Title "Subscription Plans" */}
             <h2
-              className="text-center capitalize"
+              className="text-center"
               style={{
                 fontFamily: "IBM Plex Sans Arabic, sans-serif",
-                fontWeight: 600,
-                fontSize: "clamp(2rem, 3.5vw, 48px)",
-                lineHeight: "100%",
+                fontWeight: 700,
+                fontSize: "clamp(1.1rem, 1.8vw, 24px)",
+                lineHeight: "140%",
                 color: "#0d0d0d",
                 margin: 0,
               }}
@@ -377,22 +372,23 @@ export default function PlansSection() {
               <span>{t("title")}</span>
               <span style={{ color: "#3938a8" }}>{t("titleHighlight")}</span>
             </h2>
-
-            {/* H3 subtitle */}
-            <p
-              className="text-center capitalize"
-              style={{
-                fontFamily: "IBM Plex Sans Arabic, sans-serif",
-                fontWeight: 500,
-                fontSize: "clamp(1.5rem, 3vw, 40px)",
-                lineHeight: "72px",
-                color: "#636363",
-                margin: 0,
-              }}
-            >
-              {t("subtitle")}
-            </p>
           </div>
+
+          {/* Main subtitle heading */}
+          <p
+            className="relative z-10 text-center"
+            style={{
+              fontFamily: "IBM Plex Sans Arabic, sans-serif",
+              fontWeight: 600,
+              fontSize: "clamp(1.5rem, 3vw, 40px)",
+              lineHeight: "130%",
+              color: "#1a1a2e",
+              maxWidth: 700,
+              margin: 0,
+            }}
+          >
+            {t("subtitle")}
+          </p>
 
           {/* Description */}
           <p
@@ -400,10 +396,10 @@ export default function PlansSection() {
             style={{
               fontFamily: "IBM Plex Sans Arabic, sans-serif",
               fontWeight: 400,
-              fontSize: "clamp(1rem, 1.8vw, 24px)",
-              lineHeight: "48px",
+              fontSize: "clamp(0.875rem, 1.4vw, 18px)",
+              lineHeight: "1.8",
               color: "#808080",
-              maxWidth: 874,
+              maxWidth: 620,
               margin: 0,
             }}
           >
@@ -412,7 +408,8 @@ export default function PlansSection() {
         </div>
 
         {/* ── Plan cards ── */}
-        <div className="flex flex-col lg:flex-row items-stretch gap-[24px] w-full max-w-[1280px]">
+        {/* <div className="flex flex-col lg:flex-row items-stretch gap-[24px] w-full max-w-[1280px]"> */}
+        <div className="flex flex-col lg:flex-row items-stretch gap-[32px] w-full max-w-[1280px]">
           {planKeys.map((key, index) => {
             const name = t(`${key}.name`);
             const price = t(`${key}.price`);
