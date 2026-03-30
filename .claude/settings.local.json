@@ -11,7 +11,8 @@
       "Bash(curl -s \"http://localhost:3845/assets/a53d3314b407a80cecfbfb2fd64396dc5d4e52c9.svg\")",
       "mcp__mcp-registry__search_mcp_registry",
       "Bash(npx tsc:*)",
-      "Bash(npx next:*)"
+      "Bash(npx next:*)",
+      "Bash(ls \"D:\\\\Programming\\\\Work\\\\Omnexa\\\\Omnexa-academy-landing\\\\.claude\\\\worktrees\\\\festive-mclean\\\\public\\\\images\"\" 2>/dev/null || echo \"no images dir \")"
     ]
   }
 }

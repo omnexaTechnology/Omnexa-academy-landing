@@ -1,6 +1,11 @@
 export default {
   nav: {
     home: "Home",
+    about: "About Omnexa",
+    plans: "Plans",
+    contact: "Contact us",
+    signUp: "Sign up",
+    signIn: "Sign in",
     features: "Features",
     pricing: "Pricing",
     faq: "FAQ",
