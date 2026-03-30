@@ -113,7 +113,7 @@ function BrowserMockup() {
               color: "#B4B4B4",
             }}
           >
-            app.yourapp.io
+            you-omnexa-learn.com
           </span>
         </div>
         <div style={{ width: 48, flexShrink: 0 }} />

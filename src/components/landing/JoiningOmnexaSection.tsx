@@ -5,8 +5,8 @@ import { useTranslations, useLocale } from "next-intl";
 import { SIGNUP_URL } from "@/lib/constants";
 
 const ASSETS = {
-  ellipsePurple: "/assets/joining-ellipse-purple.png",
-  ellipseBlue: "/assets/joining-ellipse-blue.png",
+  ellipsePurple: "/assets/joining-ellipse-purple.svg",
+  ellipseBlue: "/assets/joining-ellipse-blue.svg",
   bgDecoration: "/assets/joining-bg-decoration.svg",
   cardDecoration: "/assets/joining-card-decoration.svg",
   stars: "/assets/stars.svg",
@@ -33,9 +33,9 @@ function StepCard({
       style={
         highlighted
           ? {
-              background:
-                "linear-gradient(270deg, #0098df 0%, #00354e 91.85%)",
-            }
+            background:
+              "linear-gradient(270deg, #0098df 0%, #00354e 91.85%)",
+          }
           : {}
       }
     >
