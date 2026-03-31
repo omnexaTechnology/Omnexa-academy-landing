@@ -1,0 +1,15 @@
+services:
+  landing:
+    image: ghcr.io/omnexatechnology/omnexa-academy-landing:latest
+    restart: unless-stopped
+    ports:
+      - "3005:3001"
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_ACADEMY_URL=https://app.omnexa-learn.com
+    networks:
+      - omnexa_network
+
+networks:
+  omnexa_network:
+    external: true
