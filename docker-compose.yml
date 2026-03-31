@@ -8,8 +8,8 @@ services:
       - NODE_ENV=production
       - NEXT_PUBLIC_ACADEMY_URL=https://app.omnexa-learn.com
     networks:
-      - omnexa_network
+      - omnexa-network
 
 networks:
-  omnexa_network:
+  omnexa-network:
     external: true
