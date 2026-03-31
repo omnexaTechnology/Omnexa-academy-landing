@@ -82,6 +82,22 @@ export default {
       },
     },
   },
+  featuresSection: {
+    heading: "لماذا تختار أومنيكسا ليرن؟",
+    description:
+      "أومنيكسا ليرن أكثر من مجرد منصة تعليم إلكتروني. إنها حل متكامل لإطلاق أكاديميتك الرقمية وإدارتها، بينما نتولى نحن الجانب التقني حتى تتفرغ للتدريس وصناعة المحتوى.",
+    quickLaunchTitle: "إطلاق سريع لأكاديميتك",
+    quickLaunchDescription: "أطلق منصتك في دقائق وابدأ التدريس فوراً.",
+    studentsPlatformTitle: "منصة الطلاب",
+    studentsPlatformDescription:
+      "منصة احترافية لعرض دوراتك ومحتواك التعليمي",
+    smartDashboardTitle: "لوحة تحكم ذكية",
+    smartDashboardDescription:
+      "لوحة تحكم ذكية لإدارة أكاديميتك وتتبع الدورات والطلاب والأداء.",
+    reliableInfrastructureTitle: "بنية تحتية موثوقة",
+    reliableInfrastructureDescription:
+      "نتولى الاستضافة والتحديثات والأمان لضمان استقرار منصتك دائماً.",
+  },
   plansSection: {
     title: "خطط ",
     titleHighlight: "الاشتراك",
