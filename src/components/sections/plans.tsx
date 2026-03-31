@@ -11,7 +11,7 @@ const ASSETS = {
   stars: "/assets/stars.svg",
   cardBgDark: "/assets/plans-card-bg-dark.svg",
   checkIcon: "/assets/plans-check-icon.svg",
-  cardBgHighlight: "/assets/plans-card-bg-highlight.svg",
+  cardBgHighlight: "/assets/plans-card-bg-dark.svg",
 };
 
 // ── Feature row ───────────────────────────────────────────────────────────────
@@ -19,7 +19,10 @@ const ASSETS = {
 function FeatureItem({ text }: { text: string }) {
   return (
     <div className="flex items-center gap-[8px] w-full">
-      <div className="relative shrink-0" style={{ width: 18.457, height: 18.457 }}>
+      <div
+        className="relative shrink-0"
+        style={{ width: 18.457, height: 18.457 }}
+      >
         <Image
           alt=""
           fill
@@ -93,7 +96,10 @@ function DarkCard({ name, price, perMonth, features, cta }: DarkCardProps) {
         </div>
 
         {/* Price */}
-        <p className="text-center w-full capitalize" style={{ lineHeight: "0" }}>
+        <p
+          className="text-center w-full capitalize"
+          style={{ lineHeight: "0" }}
+        >
           <span
             style={{
               fontFamily: "IBM Plex Sans Arabic, sans-serif",
@@ -289,7 +295,9 @@ export default function PlansSection() {
     <section
       id="plans"
       className="relative overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #ffffff 0%, #eef0ff 100%)" }}
+      style={{
+        background: "linear-gradient(180deg, #ffffff 0%, #eef0ff 100%)",
+      }}
     >
       {/* ── Right glow ellipse ── */}
       <div
@@ -311,7 +319,13 @@ export default function PlansSection() {
       <div
         aria-hidden
         className="pointer-events-none absolute hidden xl:block"
-        style={{ left: -78, width: 840, height: 840, top: "calc(50% + 109.5px)", transform: "translateY(-50%)" }}
+        style={{
+          left: -78,
+          width: 840,
+          height: 840,
+          top: "calc(50% + 109.5px)",
+          transform: "translateY(-50%)",
+        }}
       >
         <div className="absolute" style={{ inset: "-26.67%" }}>
           <Image
@@ -324,49 +338,40 @@ export default function PlansSection() {
       </div>
 
       {/* ── Main content ── */}
-      <div
-        className="relative z-10 mx-auto flex max-w-[1440px] flex-col items-center gap-12 px-5 py-[80px] md:gap-16 md:px-10 md:py-[100px] lg:gap-[80px] lg:px-20 lg:py-[120px]"
-      >
+      <div className="relative z-10 mx-auto flex max-w-[1440px] flex-col items-center gap-12 px-5 py-[80px] md:gap-16 md:px-10 md:py-[100px] lg:gap-[80px] lg:px-20 lg:py-[120px]">
         {/* ── Header ── */}
         <div className="relative flex flex-col items-center gap-6 w-full">
-          {/* Background title decoration */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute"
-            style={{ inset: "-54.24% 40% 38.12% 38.13%" }}
-          >
-            <Image
-              alt=""
-              fill
-              src={ASSETS.bgDecoration}
-              className="absolute block size-full max-w-none"
-            />
-          </div>
+          {/* ── Title with background and side stars ── */}
+          <div className="relative flex items-center justify-center w-full gap-4">
+            {/* Background image behind the title */}
+            {/* Background image behind the title */}
+            <div className="absolute inset-0 flex justify-center items-center pointer-events-none -z-10 scale-[1.7]">
+              <Image
+                alt=""
+                src={ASSETS.bgDecoration}
+                fill
+                className="object-contain"
+              />
+            </div>
 
-          {/* Stars + Title label */}
-          <div className="relative z-10 flex flex-col items-center gap-2">
-            {/* Stars decoration */}
-            <div
-              aria-hidden
-              style={{
-                transform: "scaleY(-1) rotate(-160.45deg)",
-                width: 56,
-                height: 56,
-              }}
-            >
+            {/* Stars decoration to the left */}
+            <div aria-hidden style={{ width: 56, height: 56 }}>
               <Image alt="" src={ASSETS.stars} width={56} height={56} />
             </div>
 
-            {/* Title "Subscription Plans" */}
+            {/* Title */}
             <h2
-              className="text-center"
+              className="text-center relative z-10"
               style={{
                 fontFamily: "IBM Plex Sans Arabic, sans-serif",
                 fontWeight: 700,
-                fontSize: "clamp(1.1rem, 1.8vw, 24px)",
+                fontSize: "clamp(1.5rem, 3vw, 48px)",
                 lineHeight: "140%",
                 color: "#0d0d0d",
                 margin: 0,
+                display: "flex",
+                alignItems: "center",
+                gap: "0.5rem", // space between title and highlight if needed
               }}
             >
               <span>{t("title")}</span>
@@ -379,8 +384,8 @@ export default function PlansSection() {
             className="relative z-10 text-center"
             style={{
               fontFamily: "IBM Plex Sans Arabic, sans-serif",
-              fontWeight: 600,
-              fontSize: "clamp(1.5rem, 3vw, 40px)",
+              fontWeight: 500,
+              fontSize: "clamp(1rem, 2.5vw, 30px)",
               lineHeight: "130%",
               color: "#1a1a2e",
               maxWidth: 700,

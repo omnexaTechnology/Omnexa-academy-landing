@@ -1,5 +1,19 @@
+import Image from "next/image"; // <-- add this import at the top
 import { useTranslations } from "next-intl";
-import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, MessageCircle } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Facebook,
+  Instagram,
+  Linkedin,
+} from "lucide-react";
+import Link from "next/link";
+
+const ASSETS = {
+  whatsapp: "/assets/whatsapp.svg", // path to your WhatsApp icon
+  logoSrc: "/images/footer-logo.png",
+};
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -18,11 +32,6 @@ export default function Footer() {
       icon: Phone,
       label: t("internationalNumber"),
       value: t("internationalNumberValue"),
-    },
-    {
-      icon: MessageCircle,
-      label: t("whatsapp"),
-      value: t("whatsappValue"),
     },
     {
       icon: Mail,
@@ -46,22 +55,26 @@ export default function Footer() {
       <div className="relative z-10 mx-auto max-w-[1440px] px-5 py-16 md:px-10 lg:px-20 lg:py-20">
         {/* Main 3-column grid */}
         <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
-
           {/* ── Column 1: Logo + Description + Socials ── */}
           <div className="flex flex-1 flex-col gap-8">
             {/* Logo placeholder */}
-            <div
-              className="flex h-[108px] w-[108px] shrink-0 items-center justify-center rounded-2xl"
-              style={{ background: "rgba(255,255,255,0.12)" }}
-            >
-              <span className="text-2xl font-bold text-white">OL</span>
+            <div className="flex flex-1 flex-col gap-8">
+              {/* Logo */}
+              <div className="flex h-[108px] w-[108px] shrink-0 items-center justify-center rounded-2xl bg-white/12">
+                <Image
+                  src={ASSETS.logoSrc}
+                  alt="Logo"
+                  width={108}
+                  height={108}
+                  className="object-contain"
+                />
+              </div>
+
+              {/* Rest of your description + socials here */}
             </div>
 
             {/* Description */}
-            <p
-              className="text-base leading-8"
-              style={{ color: "#c3c3c3" }}
-            >
+            <p className="text-base leading-8" style={{ color: "#c3c3c3" }}>
               {t("description")}
             </p>
 
@@ -104,9 +117,7 @@ export default function Footer() {
 
           {/* ── Column 2: Quick Links ── */}
           <div className="flex flex-1 flex-col gap-6">
-            <h4
-              className="text-xl font-semibold leading-[48px] text-white md:text-2xl"
-            >
+            <h4 className="text-xl font-semibold leading-[48px] text-white md:text-2xl">
               {t("quickLinks")}
             </h4>
             <ul className="flex flex-col">
@@ -130,17 +141,13 @@ export default function Footer() {
 
           {/* ── Column 3: Contact Us ── */}
           <div className="flex flex-1 flex-col gap-6">
-            <h4
-              className="text-xl font-semibold leading-[48px] text-white md:text-2xl"
-            >
+            <h4 className="text-xl font-semibold leading-[48px] text-white md:text-2xl">
               {t("contactUs")}
             </h4>
             <ul className="flex flex-col gap-6">
               {contactItems.map(({ icon: Icon, label, value }) => (
                 <li key={label} className="flex items-start gap-3">
-                  <Icon
-                    className="mt-0.5 h-8 w-8 shrink-0 text-white"
-                  />
+                  <Icon className="mt-0.5 h-8 w-8 shrink-0 text-white" />
                   <div className="flex flex-col gap-0.5">
                     <span
                       className="text-base leading-6 md:text-lg lg:text-xl"
@@ -180,18 +187,24 @@ export default function Footer() {
             {t("copyrightPart2")}
           </p>
 
-          {/* WhatsApp badge */}
-          <a
+          {/* WhatsApp badge using SVG from assets */}
+          {/* WhatsApp floating badge */}
+          <Link
             href="#contact"
             aria-label="WhatsApp"
-            className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full transition-opacity hover:opacity-90"
+            className="fixed right-5 bottom-5 z-50 flex h-12 w-12 items-center justify-center rounded-full shadow-lg transition-opacity hover:opacity-90 sm:right-10 sm:bottom-10"
             style={{
-              background:
-                "linear-gradient(135deg, #25d366 0%, #128c7e 100%)",
+              background: "linear-gradient(135deg, #25D366 0%, #25D366 100%)",
             }}
           >
-            <MessageCircle className="h-10 w-10 text-white" />
-          </a>
+            <Image
+              src={ASSETS.whatsapp}
+              alt="WhatsApp"
+              width={24}
+              height={24}
+              className="block"
+            />
+          </Link>
         </div>
       </div>
     </footer>

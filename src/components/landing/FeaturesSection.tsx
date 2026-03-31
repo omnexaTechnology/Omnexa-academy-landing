@@ -19,7 +19,8 @@ export default function FeaturesSection() {
       }}
     >
       {/* Decorative circular graphic behind the title */}
-      <div className="pointer-events-none absolute bottom-[82.74%] left-[5.56%] right-3/4 top-[5.01%]">
+      {/* <div className="pointer-events-none absolute bottom-[82.74%] left-[5.56%] right-3/4 top-[5.01%]"> */}
+      <div className="pointer-events-none absolute bottom-[81.74%] left-[3.40%] right-3/4 top-[5.01%]">
         <Image
           alt=""
           fill

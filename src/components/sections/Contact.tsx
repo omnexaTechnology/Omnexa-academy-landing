@@ -6,6 +6,7 @@ import { useTranslations, useLocale } from "next-intl";
 const ASSETS = {
   stars: "/assets/stars.svg",
   whatsapp: "/assets/whatsapp.svg",
+  bg: "/assets/contact-bg.svg",
 };
 
 function WhatsAppIcon() {
@@ -34,36 +35,47 @@ export default function ContactSection() {
     >
       {/* Gradient card */}
       <div
-        className="relative mx-auto max-w-[1080px] overflow-hidden rounded-3xl"
+        className="relative mx-auto w-full max-w-[1080px] md:max-w-[1200px] lg:max-w-[1400px] xl:max-w-[1600px] overflow-hidden rounded-3xl"
         style={{
           background:
             "radial-gradient(ellipse at 50% 50%, #4C4BE0 0%, #3B3AAD 50%, #29297A 100%)",
           padding: "64px 40px",
         }}
       >
-        {/* Stars decoration — absolutely positioned */}
+        {/* Gradient background */}
         <div
-          className="pointer-events-none absolute hidden md:block"
+          className="absolute inset-0 z-0"
           style={{
-            [isRtl ? "right" : "left"]: 307,
-            top: -47,
-            width: 78,
-            height: 78,
-            transform: "rotate(-160.45deg) scaleY(-1)",
+            background:
+              "radial-gradient(ellipse at 50% 50%, #4C4BE0 0%, #3B3AAD 50%, #29297A 100%)",
           }}
-          aria-hidden="true"
-        >
+        />
+
+        {/* SVG background */}
+        <div className="absolute inset-0 pointer-events-none z-0">
           <Image
+            src={ASSETS.bg}
             alt=""
-            src={ASSETS.stars}
-            width={78}
-            height={78}
-            className="block size-full"
+            fill
+            className="object-cover opacity-30"
           />
         </div>
-
-        {/* Content */}
-        <div className="relative flex flex-col items-center" style={{ gap: 40 }}>
+        <div className="relative flex items-center justify-center">
+          <div
+            className="pointer-events-none hidden md:block"
+            style={{
+              [isRtl ? "right" : "left"]: "-60px",
+              top: "10%",
+            }}
+          >
+            <Image
+              alt=""
+              src={ASSETS.stars}
+              width={60}
+              height={60}
+              className="opacity-90"
+            />
+          </div>
           {/* Heading */}
           <h2
             className="capitalize text-center text-white"
@@ -76,7 +88,14 @@ export default function ContactSection() {
           >
             {t("heading")}
           </h2>
+        </div>
+        {/* Stars decoration — absolutely positioned */}
 
+        {/* Content */}
+        <div
+          className="relative flex flex-col items-center"
+          style={{ gap: 40 }}
+        >
           {/* Description */}
           <p
             className="mx-auto max-w-[800px] text-center"

@@ -6,6 +6,7 @@ const ASSETS = {
   imgLeft: "/assets/about-left.png",
   imgCenter: "/assets/about-center.png",
   imgRight: "/assets/about-right.png",
+  decorativeCircle: "/assets/about-decorative-circle.svg",
 };
 
 function StarsIcon({ className }: { className?: string }) {
@@ -212,47 +213,51 @@ export default function AboutSection() {
         </div>
       </div>
 
-      {/* ── Stars icon (decorative, near heading) ── */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute hidden md:block"
-        style={{ left: 432, top: 192, width: 61, height: 61 }}
-      >
-        <div style={{ transform: "rotate(-160.45deg)", width: 61, height: 61 }}>
-          <StarsIcon className="w-full h-full" />
-        </div>
-      </div>
-
       {/* ── Main content ── */}
       <div
         className="relative z-10 mx-auto flex max-w-[1440px] flex-col items-center gap-12 px-5 py-[80px] md:gap-16 md:px-10 md:py-[100px] lg:gap-[80px] lg:px-20 lg:py-[120px]"
       >
         {/* Text + CTA block */}
         <div className="flex w-full flex-col items-center gap-8 md:gap-[56px]">
-          {/* Heading */}
-          <h2
-            className="text-center"
-            style={{
-              fontFamily: "IBM Plex Sans Arabic, sans-serif",
-              fontWeight: 600,
-              fontSize: "clamp(2rem, 3.5vw, 48px)",
-              lineHeight: "100%",
-              margin: 0,
-            }}
-          >
-            <span style={{ color: "#3938a8" }}>{t("headingHighlight")}</span>
-            <span style={{ color: "#0d0d0d" }}>{t("headingNormal")}</span>
-          </h2>
+          <div className="relative w-full ">
+            {/* Circle */}
+            <Image
+  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 
+             z-0 pointer-events-none 
+             w-[180px] md:w-[240px] lg:w-[300px] h-auto opacity-80"
+  width={300}
+  height={300}
+  alt="Decorative circle"
+  src={ASSETS.decorativeCircle}
+/>
+              {/* Heading */}
+              <h2
+              className=" relative text-center z-10"
+              // className=" relative z-10 text-center leading-tight"
+              style={{
+                fontFamily: "IBM Plex Sans Arabic, sans-serif",
+                fontWeight: 600,
+                fontSize: "clamp(2rem, 3.5vw, 48px)",
+                lineHeight: "100%",
+                margin: 0,
+              }}
+            >
+              <span style={{ color: "#3938a8" }}>{t("headingHighlight")}</span>
+              <span style={{ color: "#0d0d0d" }}>{t("headingNormal")}</span>
+            </h2>
+
+          </div>
+
 
           {/* Subheading */}
           <p
-            className="text-center"
+            // className="text-center"
+              className="text-center text-gray-500 max-w-[1082px] leading-relaxed 
+             text-base md:text-lg lg:text-xl"
             style={{
               fontFamily: "IBM Plex Sans Arabic, sans-serif",
+              fontSize: "clamp(1rem, 2vw, 27px)",
               fontWeight: 500,
-              fontSize: "clamp(1.5rem, 3vw, 40px)",
-              lineHeight: "100%",
-              margin: 0,
             }}
           >
             <span style={{ color: "#636363" }}>{t("subheadingPart1")}</span>

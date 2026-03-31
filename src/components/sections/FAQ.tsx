@@ -64,23 +64,21 @@ function FAQItem({ question, answer, isOpen, onToggle, isRtl }: FAQItemProps) {
   if (isOpen) {
     return (
       <div
-        className="flex flex-col overflow-hidden rounded-2xl bg-white"
+        className="w-full h-fit flex flex-col overflow-hidden rounded-2xl bg-white"
         style={{ flex: "1 0 0" }}
       >
         {/* Open header — blue */}
         <button
           onClick={onToggle}
-          className="flex w-full items-start justify-between rounded-t-2xl p-6 text-left"
+          className="flex w-full items-start justify-between rounded-t-2xl px-4 py-5 md:px-6 md:py-6 text-left"
           style={{ backgroundColor: "#4C4BE0" }}
           aria-expanded={true}
         >
           <span
-            className="flex-1 text-white"
+            className="flex-1 text-base md:text-lg lg:text-xl leading-snug text-white"
             style={{
               fontFamily: "IBM Plex Sans Arabic, sans-serif",
               fontWeight: 600,
-              fontSize: 24,
-              lineHeight: "48px",
               textAlign: isRtl ? "right" : "left",
             }}
           >
@@ -91,13 +89,11 @@ function FAQItem({ question, answer, isOpen, onToggle, isRtl }: FAQItemProps) {
           </span>
         </button>
         {/* Answer body */}
-        <div className="px-6 pb-8 pt-4">
+        <div className="px-4 md:px-6 pb-6 pt-2 text-sm md:text-base lg:text-lg leading-relaxed text-gray-500">
           <p
             style={{
               fontFamily: "IBM Plex Sans Arabic, sans-serif",
               fontWeight: 400,
-              fontSize: 20,
-              lineHeight: "36px",
               color: "#808080",
               textAlign: isRtl ? "right" : "left",
             }}
@@ -112,17 +108,15 @@ function FAQItem({ question, answer, isOpen, onToggle, isRtl }: FAQItemProps) {
   return (
     <button
       onClick={onToggle}
-      className="flex min-h-[96px] w-full items-center justify-between rounded-2xl bg-white px-6 py-8 text-left"
+      className="w-full h-fit flex items-center justify-between rounded-2xl bg-white px-4 py-5 md:px-6 md:py-6 text-left"
       style={{ flex: "1 0 0" }}
       aria-expanded={false}
     >
       <span
-        className="flex-1"
+        className="flex-1 text-base md:text-lg lg:text-xl leading-snug"
         style={{
           fontFamily: "IBM Plex Sans Arabic, sans-serif",
           fontWeight: 600,
-          fontSize: 24,
-          lineHeight: "40px",
           color: "#4C4C4C",
           textAlign: isRtl ? "right" : "left",
         }}
@@ -141,12 +135,6 @@ export default function FAQSection() {
   const locale = useLocale();
   const isRtl = locale === "ar";
   const [openIndex, setOpenIndex] = useState(0);
-
-  // Pair up questions into rows of 2
-  const rows: (typeof FAQ_KEYS[number])[][] = [];
-  for (let i = 0; i < FAQ_KEYS.length; i += 2) {
-    rows.push([FAQ_KEYS[i], FAQ_KEYS[i + 1]]);
-  }
 
   return (
     <section
@@ -210,29 +198,18 @@ export default function FAQSection() {
         </div>
 
         {/* FAQ grid */}
-        <div className="flex flex-col gap-[40px]">
-          {rows.map((row, rowIndex) => (
-            <div
-              key={rowIndex}
-              className={`flex flex-col items-start gap-6 md:flex-row ${isRtl ? "md:flex-row-reverse" : ""}`}
-            >
-              {row.map((key, colIndex) => {
-                const globalIndex = rowIndex * 2 + colIndex;
-                return (
-                  <FAQItem
-                    key={key}
-                    question={t(`items.${key}.question`)}
-                    answer={t(`items.${key}.answer`)}
-                    isOpen={openIndex === globalIndex}
-                    onToggle={() =>
-                      setOpenIndex(openIndex === globalIndex ? -1 : globalIndex)
-                    }
-                    isRtl={isRtl}
-                  />
-                );
-              })}
-            </div>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {FAQ_KEYS.map((key, index) => (
+              <FAQItem
+                key={key}
+                question={t(`items.${key}.question`)}
+                answer={t(`items.${key}.answer`)}
+                isOpen={openIndex === index}
+                onToggle={() => setOpenIndex(openIndex === index ? -1 : index)}
+                isRtl={isRtl}
+              />
+            ))}
+
         </div>
       </div>
     </section>

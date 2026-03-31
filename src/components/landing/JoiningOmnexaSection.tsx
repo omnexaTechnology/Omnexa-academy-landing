@@ -186,7 +186,7 @@ export default function JoiningOmnexaSection() {
               bottom: "67.83%",
             }}
           >
-            <Image
+            <Image 
               alt=""
               fill
               src={ASSETS.bgDecoration}

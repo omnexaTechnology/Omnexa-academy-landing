@@ -7,8 +7,8 @@ import Image from "next/image";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { SIGNUP_URL, SIGNIN_URL } from "@/lib/constants";
 
-const logoSrc = "/images/42db69c56be60ba4034acbc948048abb20e8046b.png";
-const flagSrc = "/images/ffaf1817faa33f245f63d9bb9e1830fe3b10fdaa.svg";
+const flagSrcEn = "/images/en.svg";
+const flagSrcAr = "/images/ar.svg";
 const themIconSrc = "/images/660035fe26132c13cd2c856c8542e8f45225b432.svg";
 
 const NAV_LINKS = [
@@ -34,7 +34,7 @@ export default function Navbar() {
         ([entry]) => {
           if (entry.isIntersecting) setActiveSection(sectionId);
         },
-        { rootMargin: "-40% 0px -40% 0px" }
+        { rootMargin: "-40% 0px -40% 0px" },
       );
       observer.observe(el);
       observers.push(observer);
@@ -48,6 +48,10 @@ export default function Navbar() {
     document.cookie = `NEXT_LOCALE=${newLocale};path=/;max-age=${365 * 24 * 60 * 60}`;
     window.location.reload();
   };
+
+  // Dynamic logo based on locale
+  const logoSrc = locale === "en" ? "/images/logo.png" : "/images/logo-ar.png";
+  const flagSrc = locale === "en" ? flagSrcEn : flagSrcAr;
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
@@ -98,7 +102,12 @@ export default function Navbar() {
               aria-label="Toggle language"
             >
               <div className="relative h-7 w-7 shrink-0 overflow-hidden rounded-full lg:h-8 lg:w-8">
-                <Image src={flagSrc} alt="language flag" fill className="object-cover" />
+                <Image
+                  src={flagSrc}
+                  alt="language flag"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <span className="text-sm font-normal lg:text-base xl:text-xl">
                 {locale === "en" ? "English" : "العربية"}
@@ -110,7 +119,12 @@ export default function Navbar() {
               className="relative h-7 w-7 shrink-0 text-[#4C4C4C] transition-colors hover:text-[#4C4BE0] lg:h-8 lg:w-8"
               aria-label="Toggle theme"
             >
-              <Image src={themIconSrc} alt="theme" fill className="object-contain" />
+              <Image
+                src={themIconSrc}
+                alt="theme"
+                fill
+                className="object-contain"
+              />
             </button>
           </div>
 
@@ -139,9 +153,16 @@ export default function Navbar() {
             aria-label="Toggle language"
           >
             <div className="relative h-5 w-5 overflow-hidden rounded-full">
-              <Image src={flagSrc} alt="language flag" fill className="object-cover" />
+              <Image
+                src={flagSrc}
+                alt="language flag"
+                fill
+                className="object-cover"
+              />
             </div>
-            <span className="text-xs font-normal">{locale === "en" ? "EN" : "AR"}</span>
+            <span className="text-xs font-normal">
+              {locale === "en" ? "EN" : "AR"}
+            </span>
           </button>
 
           <Sheet open={open} onOpenChange={setOpen}>
