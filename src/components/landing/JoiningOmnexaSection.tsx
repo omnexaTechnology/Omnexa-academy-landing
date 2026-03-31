@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import { SIGNUP_URL } from "@/lib/constants";
@@ -18,18 +19,20 @@ interface StepCardProps {
   number: number;
   title: string;
   description: string;
-  highlighted?: boolean;
 }
 
 function StepCard({
   number,
   title,
   description,
-  highlighted = false,
 }: StepCardProps) {
+  const [highlighted, setHighlighted] = React.useState(false);
+
   return (
     <div
-      className="relative flex flex-col gap-[40px] items-center text-center px-[16px] py-[40px] rounded-[16px]"
+      className="relative flex flex-col gap-[40px] items-center text-center px-[16px] py-[40px] rounded-[16px] cursor-pointer transition-all duration-300"
+      onMouseEnter={() => setHighlighted(true)}
+      onMouseLeave={() => setHighlighted(false)}
       style={
         highlighted
           ? {
@@ -133,10 +136,10 @@ export default function JoiningOmnexaSection() {
   const isRtl = locale === "ar";
 
   const steps = [
-    { number: 1, highlighted: false },
-    { number: 2, highlighted: true },
-    { number: 3, highlighted: false },
-    { number: 4, highlighted: false },
+    { number: 1 },
+    { number: 2 },
+    { number: 3 },
+    { number: 4 },
   ];
 
   return (
@@ -275,7 +278,6 @@ export default function JoiningOmnexaSection() {
                 number={step.number}
                 title={t(`step${step.number}.title`)}
                 description={t(`step${step.number}.description`)}
-                highlighted={step.highlighted}
               />
             </div>
           ))}
@@ -292,7 +294,6 @@ export default function JoiningOmnexaSection() {
                 number={step.number}
                 title={t(`step${step.number}.title`)}
                 description={t(`step${step.number}.description`)}
-                highlighted={step.highlighted}
               />
             </div>
           ))}
