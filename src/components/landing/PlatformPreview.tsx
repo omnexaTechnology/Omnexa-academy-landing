@@ -244,9 +244,9 @@ function BrowserMockup() {
           </div>
           {/* Table rows */}
           {[
-            { name: "Ahmed K.", email: "ahmed@mail.com", status: "Active", type: "Premium", created: "2024-01-10", updated: "2024-03-12" },
-            { name: "Sara M.", email: "sara@mail.com", status: "Inactive", type: "Basic", created: "2024-01-14", updated: "2024-02-28" },
-            { name: "Omar H.", email: "omar@mail.com", status: "Active", type: "Premium", created: "2024-02-03", updated: "2024-03-15" },
+            { name: "Mahmoud E.", email: "mahmoud@mail.com", status: "Active", type: "Premium", created: "2024-01-10", updated: "2024-03-12" },
+            { name: "Mohamed O.", email: "mohamed@mail.com", status: "Inactive", type: "Basic", created: "2024-01-14", updated: "2024-02-28" },
+            { name: "Heba H.", email: "heba@mail.com", status: "Active", type: "Premium", created: "2024-02-03", updated: "2024-03-15" },
           ].map((row, i, arr) => (
             <div
               key={i}

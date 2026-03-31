@@ -50,7 +50,7 @@ export default function Navbar() {
   };
 
   // Dynamic logo based on locale
-  const logoSrc = locale === "en" ? "/images/logo.png" : "/images/logo-ar.png";
+  const logoSrc = "/images/logo.png";
   const flagSrc = locale === "en" ? flagSrcEn : flagSrcAr;
 
   return (
@@ -115,7 +115,7 @@ export default function Navbar() {
             </button>
 
             {/* Theme toggle */}
-            <button
+            {/* <button
               className="relative h-7 w-7 shrink-0 text-[#4C4C4C] transition-colors hover:text-[#4C4BE0] lg:h-8 lg:w-8"
               aria-label="Toggle theme"
             >
@@ -125,7 +125,7 @@ export default function Navbar() {
                 fill
                 className="object-contain"
               />
-            </button>
+            </button> */}
           </div>
 
           {/* CTA Buttons */}
