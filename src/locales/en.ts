@@ -82,6 +82,22 @@ export default {
       },
     },
   },
+  featuresSection: {
+    heading: "Why choose omnexa learn?",
+    description:
+      "Omnexa learn is more than an e-learning platform. It's a complete solution to launch and manage your digital academy, while we handle the technology so you can focus on teaching and content creation.",
+    quickLaunchTitle: "Quick launch for your academy",
+    quickLaunchDescription: "Launch your platform in minutes and start teaching.",
+    studentsPlatformTitle: "Students platform",
+    studentsPlatformDescription:
+      "A professional platform to present your courses and learning content",
+    smartDashboardTitle: "Smart Dashboard",
+    smartDashboardDescription:
+      "Smart dashboard to manage your academy and track courses, students, and performance.",
+    reliableInfrastructureTitle: "Reliable infrastructure",
+    reliableInfrastructureDescription:
+      "We handle hosting, updates, and security to ensure your platform is always stable.",
+  },
   plansSection: {
     title: "Subscription ",
     titleHighlight: "Plans",

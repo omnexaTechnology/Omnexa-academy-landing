@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const ASSETS = {
   stars: "/assets/stars.svg",
@@ -10,6 +11,7 @@ const ASSETS = {
 };
 
 export default function FeaturesSection() {
+  const t = useTranslations("featuresSection");
   return (
     <section
       id="features"
@@ -52,17 +54,14 @@ export default function FeaturesSection() {
               className="text-[28px] font-semibold capitalize leading-normal text-white md:text-[36px] lg:text-[48px]"
               style={{ fontFamily: "'IBM Plex Sans Arabic', sans-serif" }}
             >
-              Why choose omnexa learn?
+              {t("heading")}
             </h2>
 
             <p
               className="text-[16px] font-medium leading-[32px] text-[#ddd] md:text-[20px] md:leading-[40px] lg:text-[24px] lg:leading-[48px]"
               style={{ fontFamily: "'IBM Plex Sans Arabic', sans-serif" }}
             >
-              Omnexa learn is more than an e-learning platform. It&apos;s a
-              complete solution to launch and manage your digital academy, while
-              we handle the technology so you can focus on teaching and content
-              creation.
+              {t("description")}
             </p>
           </div>
 
@@ -87,13 +86,13 @@ export default function FeaturesSection() {
                 className="w-full text-[22px] font-semibold capitalize leading-[40px] text-[#f8f8f8] md:text-[28px] md:leading-[48px] lg:text-[32px] lg:leading-[64px]"
                 style={{ fontFamily: "'IBM Plex Sans Arabic', sans-serif" }}
               >
-                Quick launch for your academy
+                {t("quickLaunchTitle")}
               </p>
               <p
                 className="w-full text-[16px] font-normal leading-[32px] text-[#ddd] md:text-[20px] md:leading-[40px] lg:text-[24px] lg:leading-[48px]"
                 style={{ fontFamily: "'IBM Plex Sans Arabic', sans-serif" }}
               >
-                Launch your platform in minutes and start teaching.
+                {t("quickLaunchDescription")}
               </p>
             </div>
           </div>
@@ -127,14 +126,13 @@ export default function FeaturesSection() {
                 className="w-full text-[22px] font-semibold capitalize leading-[40px] text-[#f8f8f8] md:text-[28px] md:leading-[48px] lg:text-[32px] lg:leading-[56px]"
                 style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}
               >
-                students platform
+                {t("studentsPlatformTitle")}
               </p>
               <p
                 className="w-full text-[16px] font-normal leading-[32px] text-[#ddd] md:text-[20px] md:leading-[40px] lg:text-[24px] lg:leading-[48px]"
                 style={{ fontFamily: "'IBM Plex Sans Arabic', sans-serif" }}
               >
-                A professional platform to present your courses and learning
-                content
+                {t("studentsPlatformDescription")}
               </p>
             </div>
           </div>
@@ -162,14 +160,13 @@ export default function FeaturesSection() {
                 className="w-full text-[22px] font-semibold capitalize leading-[40px] text-[#f8f8f8] md:text-[28px] md:leading-[48px] lg:text-[32px] lg:leading-[64px]"
                 style={{ fontFamily: "'IBM Plex Sans Arabic', sans-serif" }}
               >
-                Smart Dashboard
+                {t("smartDashboardTitle")}
               </p>
               <p
                 className="w-full text-[16px] font-normal leading-[32px] text-[#ddd] md:text-[20px] md:leading-[40px] lg:text-[24px] lg:leading-[48px]"
                 style={{ fontFamily: "'IBM Plex Sans Arabic', sans-serif" }}
               >
-                Smart dashboard to manage your academy and track courses,
-                students, and performance.
+                {t("smartDashboardDescription")}
               </p>
             </div>
           </div>
@@ -197,14 +194,13 @@ export default function FeaturesSection() {
                 className="w-full text-[22px] font-semibold capitalize leading-[40px] text-[#f8f8f8] md:text-[28px] md:leading-[48px] lg:text-[32px] lg:leading-[64px]"
                 style={{ fontFamily: "'IBM Plex Sans Arabic', sans-serif" }}
               >
-                Reliable infrastructure
+                {t("reliableInfrastructureTitle")}
               </p>
               <p
                 className="w-full text-[16px] font-normal leading-[32px] text-[#ddd] md:text-[20px] md:leading-[40px] lg:text-[24px] lg:leading-[48px]"
                 style={{ fontFamily: "'IBM Plex Sans Arabic', sans-serif" }}
               >
-                We handle hosting, updates, and security to ensure your platform
-                is always stable.
+                {t("reliableInfrastructureDescription")}
               </p>
             </div>
           </div>
