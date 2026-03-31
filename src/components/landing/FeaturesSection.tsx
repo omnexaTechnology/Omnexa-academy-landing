@@ -19,8 +19,7 @@ export default function FeaturesSection() {
       }}
     >
       {/* Decorative circular graphic behind the title */}
-      {/* <div className="pointer-events-none absolute bottom-[82.74%] left-[5.56%] right-3/4 top-[5.01%]"> */}
-      <div className="pointer-events-none absolute bottom-[81.74%] left-[3.40%] right-3/4 top-[5.01%]">
+      <div className="pointer-events-none absolute left-[3.40%] top-[20px] h-[160px] w-[160px] md:top-[5.01%] md:bottom-[81.74%] md:h-auto md:w-auto md:right-3/4">
         <Image
           alt=""
           fill
@@ -35,7 +34,7 @@ export default function FeaturesSection() {
           {/* Left: title + description */}
           <div className="relative flex min-w-0 flex-1 flex-col gap-14">
             {/* Decorative stars */}
-            <div className="absolute left-[-62px] top-[-56px] flex size-[78px] items-center justify-center">
+            <div className="absolute left-0 top-[-48px] flex size-[78px] items-center justify-center md:left-[-62px] md:top-[-56px]">
               <div
                 className="flex-none"
                 style={{ transform: "scaleY(-1) rotate(-160.45deg)" }}
