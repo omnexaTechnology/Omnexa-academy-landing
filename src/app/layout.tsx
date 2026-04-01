@@ -28,6 +28,11 @@ export const metadata: Metadata = {
       "Create, manage, and grow your online academy with Omnexa Learn.",
     type: "website",
   },
+  icons: {
+    icon: [
+      { url: "/images/footer-logo.png", type: "image/png" },
+    ],
+  },
 };
 
 export default async function RootLayout({
