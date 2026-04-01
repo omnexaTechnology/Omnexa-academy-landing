@@ -16,7 +16,8 @@
       "Bash(find /d/Programming/Work/Omnexa/Omnexa-academy-landing/.claude/worktrees/nice-bartik -type f -name *pricing* -o -name *plan* -o -name *subscription*)",
       "Bash(xargs grep:*)",
       "mcp__Claude_Preview__preview_start",
-      "Bash(netstat -ano)"
+      "Bash(netstat -ano)",
+      "Bash(node -e \":*)"
     ]
   }
 }
