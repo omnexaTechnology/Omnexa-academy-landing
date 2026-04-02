@@ -154,7 +154,7 @@ export default function HeroSection() {
       <div
         aria-hidden
         className="pointer-events-none absolute left-0 top-0 hidden xl:block"
-        style={{ width: 338, opacity: 0.04 }}
+        style={{ width: 338, opacity: 0.5 }}
       >
         {([0, 353.43, 705.57] as number[]).map((top, i) => (
           <div
@@ -179,7 +179,7 @@ export default function HeroSection() {
       <div
         aria-hidden
         className="pointer-events-none absolute top-0 hidden xl:block"
-        style={{ left: 1102, opacity: 0.02 }}
+        style={{ left: 1102, opacity: 0.5 }}
       >
         {([0, 353.43, 705.57] as number[]).map((top, i) => (
           <div
