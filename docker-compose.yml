@@ -1,9 +1,18 @@
 services:
   landing:
     image: ghcr.io/omnexatechnology/omnexa-academy-landing:latest
+    init: true
     restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m
+      - /app/.next/cache:size=256m
+    cap_drop: [ ALL ]
+    security_opt: [ no-new-privileges:true ]
+    pids_limit: 200
+    mem_limit: 512m
     ports:
-      - "3005:3001"
+      - "127.0.0.1:3005:3001"
     environment:
       - NODE_ENV=production
       - NEXT_PUBLIC_ACADEMY_URL=https://app.omnexa-learn.com
