@@ -32,16 +32,25 @@ export default function Footer() {
       icon: Phone,
       label: t("internationalNumber"),
       value: t("internationalNumberValue"),
+      type: "phone",
+    },
+    {
+      icon: Phone,
+      label: t("whatsapp"),
+      value: t("whatsappValue"),
+      type: "phone",
     },
     {
       icon: Mail,
       label: t("email"),
       value: t("emailValue"),
+      type: "text",
     },
     {
       icon: MapPin,
       label: t("headOffice"),
       value: t("headOfficeValue"),
+      type: "address",
     },
   ];
 
@@ -145,7 +154,7 @@ export default function Footer() {
               {t("contactUs")}
             </h4>
             <ul className="flex flex-col gap-6">
-              {contactItems.map(({ icon: Icon, label, value }) => (
+              {contactItems.map(({ icon: Icon, label, value, type }) => (
                 <li key={label} className="flex items-start gap-3">
                   <Icon className="mt-0.5 h-8 w-8 shrink-0 text-white" />
                   <div className="flex flex-col gap-0.5">
@@ -155,12 +164,34 @@ export default function Footer() {
                     >
                       {label}
                     </span>
-                    <span
-                      className="text-base leading-6 md:text-lg lg:text-xl"
-                      style={{ color: "#dddddd" }}
-                    >
-                      {value}
-                    </span>
+                    {type === "phone" ? (
+                      <span
+                        dir="ltr"
+                        className="text-base leading-6 md:text-lg lg:text-xl"
+                        style={{ color: "#dddddd" }}
+                      >
+                        {value}
+                      </span>
+                    ) : type === "address" ? (
+                      <div className="flex flex-col gap-1">
+                        {value.split("\n").map((line, i) => (
+                          <span
+                            key={i}
+                            className="text-base leading-6 md:text-lg lg:text-xl"
+                            style={{ color: "#dddddd" }}
+                          >
+                            {line}
+                          </span>
+                        ))}
+                      </div>
+                    ) : (
+                      <span
+                        className="text-base leading-6 md:text-lg lg:text-xl"
+                        style={{ color: "#dddddd" }}
+                      >
+                        {value}
+                      </span>
+                    )}
                   </div>
                 </li>
               ))}
@@ -190,7 +221,9 @@ export default function Footer() {
           {/* WhatsApp badge using SVG from assets */}
           {/* WhatsApp floating badge */}
           <Link
-            href="#contact"
+            href="https://wa.me/966550483401"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="WhatsApp"
             className="fixed right-5 bottom-5 z-50 flex h-12 w-12 items-center justify-center rounded-full shadow-lg transition-opacity hover:opacity-90 sm:right-10 sm:bottom-10"
             style={{
