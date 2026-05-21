@@ -30,8 +30,13 @@ export default function Footer() {
   const contactItems = [
     {
       icon: Phone,
-      label: t("internationalNumber"),
-      value: t("internationalNumberValue"),
+      label: t("saudiPhone"),
+      value: t("saudiPhoneValue"),
+    },
+    {
+      icon: Phone,
+      label: t("egyptPhone"),
+      value: t("egyptPhoneValue"),
     },
     {
       icon: Mail,
@@ -40,8 +45,13 @@ export default function Footer() {
     },
     {
       icon: MapPin,
-      label: t("headOffice"),
-      value: t("headOfficeValue"),
+      label: t("saudiAddress"),
+      value: t("saudiAddressValue"),
+    },
+    {
+      icon: MapPin,
+      label: t("egyptAddress"),
+      value: t("egyptAddressValue"),
     },
   ];
 
@@ -189,8 +199,10 @@ export default function Footer() {
 
           {/* WhatsApp badge using SVG from assets */}
           {/* WhatsApp floating badge */}
-          <Link
-            href="#contact"
+          <a
+            href="https://wa.me/966550483401"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="WhatsApp"
             className="fixed right-5 bottom-5 z-50 flex h-12 w-12 items-center justify-center rounded-full shadow-lg transition-opacity hover:opacity-90 sm:right-10 sm:bottom-10"
             style={{
@@ -204,7 +216,7 @@ export default function Footer() {
               height={24}
               className="block"
             />
-          </Link>
+          </a>
         </div>
       </div>
     </footer>
