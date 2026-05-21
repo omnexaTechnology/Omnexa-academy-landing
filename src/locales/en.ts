@@ -365,7 +365,7 @@ export default {
     email: "Email",
     emailValue: "info@omnexa.com",
     headOffice: "Address",
-    headOfficeValue: "– Saudi Arabia - Eastern Region - Dammam\n– Egypt - Cairo - Nasr City",
+    headOfficeValue: "Saudi Arabia - Eastern Region - Dammam\nEgypt - Cairo - Nasr City",
     copyrightPart1: "All rights reserved © ",
     copyrightBrand: "OMNEXA",
     copyrightPart2: " 2025",

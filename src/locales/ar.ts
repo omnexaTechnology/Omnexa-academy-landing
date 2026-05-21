@@ -365,7 +365,7 @@ export default {
     email: "البريد",
     emailValue: "info@omnexa.com",
     headOffice: "العنوان",
-    headOfficeValue: "– السعودية - المنطقة الشرقية - الدمام\n– مصر - القاهرة - مدينة نصر",
+    headOfficeValue: "السعودية - المنطقة الشرقية - الدمام\nمصر - القاهرة - مدينة نصر",
     copyrightPart1: "جميع الحقوق محفوظة © ",
     copyrightBrand: "OMNEXA",
     copyrightPart2: " 2025",
