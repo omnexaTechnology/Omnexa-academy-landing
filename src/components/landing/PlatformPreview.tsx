@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 // ── Sub-components ────────────────────────────────────────────────────────────
 
@@ -293,6 +293,7 @@ const SERVICES = ["service1", "service2", "service3"] as const;
 export default function PlatformPreview() {
   const t = useTranslations("platformPreview");
   const [active, setActive] = useState(0);
+  const isRtl = useLocale() === "ar";
 
   function prev() {
     setActive((a) => (a - 1 + SERVICES.length) % SERVICES.length);
@@ -457,7 +458,7 @@ export default function PlatformPreview() {
               gap: 24,
             }}
           >
-            {/* Left arrow */}
+            {/* Prev arrow */}
             <button
               onClick={prev}
               aria-label="Previous service"
@@ -476,7 +477,7 @@ export default function PlatformPreview() {
               onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.22)")}
               onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.12)")}
             >
-              <ChevronLeft />
+              {isRtl ? <ChevronRight /> : <ChevronLeft />}
             </button>
 
             {/* Dots */}
@@ -500,7 +501,7 @@ export default function PlatformPreview() {
               ))}
             </div>
 
-            {/* Right arrow */}
+            {/* Next arrow */}
             <button
               onClick={next}
               aria-label="Next service"
@@ -519,7 +520,7 @@ export default function PlatformPreview() {
               onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.22)")}
               onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.12)")}
             >
-              <ChevronRight />
+              {isRtl ? <ChevronLeft /> : <ChevronRight />}
             </button>
           </div>
         </div>
