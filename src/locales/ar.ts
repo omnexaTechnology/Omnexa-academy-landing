@@ -362,7 +362,7 @@ export default {
     internationalNumberValue: "+966550483401",
     whatsapp: "مصر",
     whatsappValue: "+201501502921",
-    email: "البريد",
+    email: "البريد الإلكتروني",
     emailValue: "info@omnexa.com",
     headOffice: "العنوان",
     headOfficeValue: "السعودية - المنطقة الشرقية - الدمام\nمصر - القاهرة - مدينة نصر",

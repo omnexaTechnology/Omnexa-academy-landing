@@ -218,9 +218,8 @@ export default function Footer() {
             {t("copyrightPart2")}
           </p>
 
-          {/* WhatsApp badge using SVG from assets */}
           {/* WhatsApp floating badge */}
-          <Link
+          <a
             href="https://wa.me/966550483401"
             target="_blank"
             rel="noopener noreferrer"
@@ -237,7 +236,7 @@ export default function Footer() {
               height={24}
               className="block"
             />
-          </Link>
+          </a>
         </div>
       </div>
     </footer>
