@@ -100,12 +100,12 @@ export default function FeaturesSection() {
 
         {/* Bottom row: three feature cards */}
         <div
-          className="flex w-full flex-col items-center gap-6 md:flex-row"
+          className="flex w-full flex-col items-stretch gap-6 md:flex-row"
           style={{ background: "rgba(237, 237, 252, 0.04)" }}
         >
           {/* Students Platform */}
           <div
-            className="flex min-h-px min-w-0 flex-1 flex-col items-center justify-center gap-10 rounded-2xl px-6 py-14"
+            className="flex min-h-px min-w-0 flex-1 flex-col items-center justify-start gap-10 rounded-2xl px-6 py-14"
             style={{
               background: "rgba(237, 237, 252, 0.04)",
               borderTop: "12px solid #0086e3",
@@ -139,7 +139,7 @@ export default function FeaturesSection() {
 
           {/* Smart Dashboard */}
           <div
-            className="flex min-h-px min-w-0 flex-1 flex-col items-center justify-center gap-10 rounded-2xl px-6 py-14"
+            className="flex min-h-px min-w-0 flex-1 flex-col items-center justify-start gap-10 rounded-2xl px-6 py-14"
             style={{
               background: "rgba(237, 237, 252, 0.04)",
               borderTop: "12px solid #0086e3",
@@ -173,7 +173,7 @@ export default function FeaturesSection() {
 
           {/* Reliable Infrastructure */}
           <div
-            className="flex min-h-px min-w-0 flex-1 flex-col items-center justify-center gap-10 rounded-2xl px-6 py-14"
+            className="flex min-h-px min-w-0 flex-1 flex-col items-center justify-start gap-10 rounded-2xl px-6 py-14"
             style={{
               background: "rgba(237, 237, 252, 0.04)",
               borderTop: "12px solid #0086e3",
