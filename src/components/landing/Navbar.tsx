@@ -50,7 +50,7 @@ export default function Navbar() {
   };
 
   // Dynamic logo based on locale
-  const logoSrc = "/images/logo.png";
+  const logoSrc = locale === "en" ? "/images/Logo-4-en.png" : "/images/Logo-9-ar.png";
   const flagSrc = locale === "en" ? flagSrcEn : flagSrcAr;
 
   return (
