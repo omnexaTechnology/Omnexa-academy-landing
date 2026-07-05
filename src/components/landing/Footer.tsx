@@ -1,5 +1,5 @@
 import Image from "next/image"; // <-- add this import at the top
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import {
   Phone,
   Mail,
@@ -12,11 +12,12 @@ import Link from "next/link";
 
 const ASSETS = {
   whatsapp: "/assets/whatsapp.svg", // path to your WhatsApp icon
-  logoSrc: "/images/footer-logo.png",
 };
 
 export default function Footer() {
   const t = useTranslations("footer");
+  const locale = useLocale();
+  const logoSrc = locale === "en" ? "/images/Logo-4-en.png" : "/images/Logo-9-ar.png";
 
   const quickLinks = [
     { label: t("links.home"), href: "#hero" },
@@ -71,7 +72,7 @@ export default function Footer() {
               {/* Logo */}
               <div className="flex h-[108px] w-[108px] shrink-0 items-center justify-center rounded-2xl bg-white/12">
                 <Image
-                  src={ASSETS.logoSrc}
+                  src={logoSrc}
                   alt="Logo"
                   width={108}
                   height={108}
