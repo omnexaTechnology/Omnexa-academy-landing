@@ -356,6 +356,7 @@ export default {
       services: "Services",
       howToCreate: "How to create account on omnexa learn?",
       contact: "Contact us",
+      privacyPolicy: "Privacy Policy",
     },
     contactUs: "Contact us",
     internationalNumber: "Saudi Arabia",
@@ -369,5 +370,155 @@ export default {
     copyrightPart1: "All rights reserved © ",
     copyrightBrand: "OMNEXA",
     copyrightPart2: " 2025",
+  },
+  legal: {
+    meta: {
+      title: "Privacy Policy | Omnexa Learn",
+      description:
+        "Read Omnexa Learn's Privacy Policy, Refund Policy, and Terms & Conditions.",
+    },
+    hero: {
+      badge: "Legal",
+      title: "Your Privacy Matters",
+      description:
+        "Learn how Omnexa Learn protects your information, handles payments, and governs the use of the platform.",
+      lastUpdatedLabel: "Last Updated",
+      lastUpdatedDate: "20 July 2026",
+    },
+    privacy: {
+      badge: "Privacy Policy",
+      title: "Privacy Policy",
+      dateLabel: "Effective Date",
+      date: "20 July 2026",
+      intro:
+        "Omnexa Learn respects your privacy and is committed to protecting your personal data whenever you use our website or engage with our digital courses and training programs. This section explains what information we collect, how we use and protect it, and the rights you hold over it.",
+      items: {
+        collect: {
+          title: "Information We Collect",
+          intro:
+            "We may collect the following data when you register on the platform or purchase a course:",
+          points: [
+            "Full name.",
+            "Email address and mobile number, used for communication and to activate your learning account.",
+            "Payment information, processed entirely through secure, certified encrypted payment channels — we never store your card details.",
+            "Educational or professional background (optional), used to enhance your learning experience and personalize content.",
+          ],
+        },
+        use: {
+          title: "How We Use Your Information",
+          intro: "We use your data solely for the following purposes:",
+          points: [
+            "Creating and managing your learning account and granting you access to course materials.",
+            "Communicating with you about course updates, certificates, and any inquiries you submit.",
+            "Improving platform performance and developing educational content based on user experience.",
+            "Complying with the laws and regulations in force in the Kingdom of Saudi Arabia, including the Personal Data Protection Law (PDPL).",
+          ],
+        },
+        sharing: {
+          title: "Information Sharing",
+          body: "We do not sell, rent, or share your personal data with any third party for commercial purposes under any circumstances. We may only disclose your information where required by official laws and regulations, or to process the authorized electronic payments for your purchases.",
+        },
+        protection: {
+          title: "Data Protection",
+          body: "We apply strict technical and organizational security measures, together with advanced encryption solutions, to protect your data from unauthorized access, alteration, disclosure, or deletion — ensuring a fully secure learning experience.",
+        },
+        rights: {
+          title: "Your Rights",
+          intro: "You have the right to:",
+          points: [
+            "Access and review the personal data you have shared with us.",
+            "Request correction or updating of your information at any time through your account settings.",
+            "Request deletion of your data or closure of your account from our platform records.",
+          ],
+          outro:
+            "To exercise your rights or for any inquiries, please contact us directly through the official contact channels available on the website.",
+        },
+      },
+    },
+    refund: {
+      badge: "Refund Policy",
+      title: "Refund & Cancellation Policy",
+      dateLabel: "Effective Date",
+      date: "20 July 2026",
+      intro:
+        "At Omnexa Learn, we are committed to delivering fully professional educational content and training courses. Because the services offered through the platform are digital products and educational materials made available immediately upon purchase, our refund and cancellation policy is subject to the following terms:",
+      items: {
+        recorded: {
+          title: "Recorded Courses & Digital Content",
+          points: [
+            {
+              label: "Refund Before Access",
+              body: "Subscribers may request cancellation and a full refund if none of the course's educational materials or videos have been viewed or opened, provided the request is made within 24 hours of the purchase date.",
+            },
+            {
+              label: "After Content Is Accessed",
+              body: "Once a customer opens the course, watches its videos, or downloads any attached materials, the right to request a refund is forfeited, given the non-returnable nature of digital products.",
+            },
+          ],
+        },
+        live: {
+          title: "Live Courses & Interactive Workshops",
+          points: [
+            {
+              label: "Early Cancellation",
+              body: "A cancellation with a full refund may be requested at least 48 hours before the scheduled start of the live course or workshop.",
+            },
+            {
+              label: "Late Cancellation",
+              body: "Cancelling less than 48 hours before the live session results in a 50% deduction of the subscription value as an administrative fee, or the subscriber may transfer their enrollment to another course of equal value, subject to availability.",
+            },
+            {
+              label: "After the Session Starts",
+              body: "No refund will be issued once the live course has started, or if the subscriber fails to attend without prior notice.",
+            },
+          ],
+        },
+        timeline: {
+          title: "Refund Timeline",
+          body: "All legally approved refunds are processed and transferred to the customer's bank account — the same account or card used for payment — within 7 to 14 business days from the date the refund request is officially approved.",
+        },
+      },
+    },
+    terms: {
+      badge: "Terms & Conditions",
+      title: "Terms & Conditions",
+      dateLabel: "Last Updated",
+      date: "20 July 2026",
+      intro:
+        "Welcome to the official website of Omnexa Learn, a digital education platform. Please read these Terms & Conditions carefully before using our website or subscribing to our courses and training programs. By using the website or creating an account, you expressly agree to be fully bound by these terms.",
+      items: {
+        accounts: {
+          title: "User Accounts",
+          points: [
+            "Users must provide accurate, correct, and fully up-to-date information when creating their learning account, including name, email address, and mobile number.",
+            "Users bear full responsibility for keeping their account credentials and password confidential, and for all activity carried out through their account.",
+          ],
+        },
+        acceptableUse: {
+          title: "Acceptable Use",
+          points: [
+            "Accounts are intended for individual, personal, and educational use only — sharing account credentials, or activating a single purchased course for more than one person, is strictly prohibited.",
+            "Subscribers must observe general etiquette when participating in discussion channels, interactive workshops, or when asking instructors questions. The platform reserves the right to suspend any account that misuses these privileges, without refunding any amounts paid.",
+          ],
+        },
+        intellectualProperty: {
+          title: "Intellectual Property",
+          body: "All content on the Omnexa Learn platform — including videos, educational texts, training materials, assessments, designs, logos, and trademarks — is the exclusive intellectual property of the platform and is protected under the copyright and intellectual property laws of the Kingdom of Saudi Arabia.",
+          noticeLabel: "Strictly Prohibited",
+          noticeBody:
+            "Recording video content, capturing the screen, republishing or redistributing educational materials, or using them for commercial purposes outside the platform without prior written permission. Any violation entitles the platform to pursue all available legal remedies and claim damages through the courts.",
+        },
+        governingLaw: {
+          title: "Governing Law",
+          body: "These Terms & Conditions are governed by, and shall be construed and applied in accordance with, the laws, regulations, and legal instructions in force in the Kingdom of Saudi Arabia. The courts of Saudi Arabia shall have exclusive jurisdiction over any dispute arising from the use of the platform or the interpretation of these terms.",
+        },
+      },
+    },
+    cta: {
+      title: "Need Help?",
+      description:
+        "If you have questions regarding these policies, contact our support team.",
+      button: "Contact Us",
+    },
   },
 };
