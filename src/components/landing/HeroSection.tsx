@@ -8,7 +8,7 @@ const ASSETS = {
   person2Portrait: "/assets/hero-person2-portrait.png",
   person2Circle: "/assets/hero-person2-circle.png",
   person3Portrait: "/assets/hero-person3-portrait.png",
-  person4: "/assets/hero-person4.png",
+  person4: "/assets/13.png",
 };
 
 function StarsIcon({ className }: { className?: string }) {

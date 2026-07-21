@@ -76,7 +76,7 @@ export default function Footer() {
                   alt="Logo"
                   width={108}
                   height={108}
-                  className="object-contain"
+                  className="object-contain brightness-0 invert"
                 />
               </div>
 
