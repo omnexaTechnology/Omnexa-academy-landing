@@ -26,6 +26,7 @@ export default function Footer() {
     { label: t("links.services"), href: "#services" },
     { label: t("links.howToCreate"), href: "#steps" },
     { label: t("links.contact"), href: "#contact" },
+    { label: t("links.privacyPolicy"), href: "/privacy-policy" },
   ];
 
   const contactItems = [
@@ -131,21 +132,40 @@ export default function Footer() {
               {t("quickLinks")}
             </h4>
             <ul className="flex flex-col">
-              {quickLinks.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="flex items-center gap-2 py-1 text-base leading-[48px] transition-colors hover:text-white md:text-xl lg:text-2xl"
-                    style={{ color: "#dddddd" }}
-                  >
-                    <span
-                      className="h-3 w-3 shrink-0 rounded-full"
-                      style={{ backgroundColor: "#c3c3c3" }}
-                    />
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              {quickLinks.map((link) => {
+                const linkClassName =
+                  "flex items-center gap-2 py-1 text-base leading-[48px] transition-colors hover:text-white md:text-xl lg:text-2xl";
+                const dot = (
+                  <span
+                    className="h-3 w-3 shrink-0 rounded-full"
+                    style={{ backgroundColor: "#c3c3c3" }}
+                  />
+                );
+
+                return (
+                  <li key={link.label}>
+                    {link.href.startsWith("#") ? (
+                      <a
+                        href={link.href}
+                        className={linkClassName}
+                        style={{ color: "#dddddd" }}
+                      >
+                        {dot}
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className={linkClassName}
+                        style={{ color: "#dddddd" }}
+                      >
+                        {dot}
+                        {link.label}
+                      </Link>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
