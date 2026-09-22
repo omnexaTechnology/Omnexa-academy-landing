@@ -356,8 +356,6 @@ export default {
       services: "Services",
       howToCreate: "How to create account on omnexa learn?",
       contact: "Contact us",
-    },
-    legalLinks: {
       privacyPolicy: "Privacy Policy",
       terms: "Terms & Conditions",
       refundPolicy: "Refund Policy",
@@ -375,120 +373,154 @@ export default {
     copyrightBrand: "OMNEXA",
     copyrightPart2: " 2025",
   },
-  privacyPolicy: {
-    title: "Privacy Policy",
-    lastUpdated: "Last updated: September 2025",
-    intro:
-      "At Omnexa Learn, we take your privacy seriously. This policy explains how we collect, use, and protect your information when you use our platform.",
-    sections: [
-      {
-        heading: "1. Information We Collect",
-        body: "We collect information you provide directly when creating your account or setting up your academy, including: name, email address, phone number, and billing information. We also automatically collect usage data such as IP address, browser type, and pages you visit.",
+  legal: {
+    meta: {
+      title: "Privacy Policy | Omnexa Learn",
+      description:
+        "Read Omnexa Learn's Privacy Policy, Refund Policy, and Terms & Conditions.",
+    },
+    hero: {
+      badge: "Legal",
+      title: "Your Privacy Matters",
+      description:
+        "Learn how Omnexa Learn protects your information, handles payments, and governs the use of the platform.",
+      lastUpdatedLabel: "Last Updated",
+      lastUpdatedDate: "20 July 2026",
+    },
+    privacy: {
+      badge: "Privacy Policy",
+      title: "Privacy Policy",
+      dateLabel: "Effective Date",
+      date: "20 July 2026",
+      intro:
+        "Omnexa Learn respects your privacy and is committed to protecting your personal data whenever you use our website or engage with our digital courses and training programs. This section explains what information we collect, how we use and protect it, and the rights you hold over it.",
+      items: {
+        collect: {
+          title: "Information We Collect",
+          intro:
+            "We may collect the following data when you register on the platform or purchase a course:",
+          points: [
+            "Full name.",
+            "Email address and mobile number, used for communication and to activate your learning account.",
+            "Payment information, processed entirely through secure, certified encrypted payment channels — we never store your card details.",
+            "Educational or professional background (optional), used to enhance your learning experience and personalize content.",
+          ],
+        },
+        use: {
+          title: "How We Use Your Information",
+          intro: "We use your data solely for the following purposes:",
+          points: [
+            "Creating and managing your learning account and granting you access to course materials.",
+            "Communicating with you about course updates, certificates, and any inquiries you submit.",
+            "Improving platform performance and developing educational content based on user experience.",
+            "Complying with the laws and regulations in force in the Kingdom of Saudi Arabia, including the Personal Data Protection Law (PDPL).",
+          ],
+        },
+        sharing: {
+          title: "Information Sharing",
+          body: "We do not sell, rent, or share your personal data with any third party for commercial purposes under any circumstances. We may only disclose your information where required by official laws and regulations, or to process the authorized electronic payments for your purchases.",
+        },
+        protection: {
+          title: "Data Protection",
+          body: "We apply strict technical and organizational security measures, together with advanced encryption solutions, to protect your data from unauthorized access, alteration, disclosure, or deletion — ensuring a fully secure learning experience.",
+        },
+        rights: {
+          title: "Your Rights",
+          intro: "You have the right to:",
+          points: [
+            "Access and review the personal data you have shared with us.",
+            "Request correction or updating of your information at any time through your account settings.",
+            "Request deletion of your data or closure of your account from our platform records.",
+          ],
+          outro:
+            "To exercise your rights or for any inquiries, please contact us directly through the official contact channels available on the website.",
+        },
       },
-      {
-        heading: "2. How We Use Your Information",
-        body: "We use your information to operate and improve the platform, process payments, and send necessary notifications related to your account and plan. We will never sell your personal data to any third party.",
+    },
+    refund: {
+      badge: "Refund Policy",
+      title: "Refund & Cancellation Policy",
+      dateLabel: "Effective Date",
+      date: "20 July 2026",
+      intro:
+        "At Omnexa Learn, we are committed to delivering fully professional educational content and training courses. Because the services offered through the platform are digital products and educational materials made available immediately upon purchase, our refund and cancellation policy is subject to the following terms:",
+      items: {
+        recorded: {
+          title: "Recorded Courses & Digital Content",
+          points: [
+            {
+              label: "Refund Before Access",
+              body: "Subscribers may request cancellation and a full refund if none of the course's educational materials or videos have been viewed or opened, provided the request is made within 24 hours of the purchase date.",
+            },
+            {
+              label: "After Content Is Accessed",
+              body: "Once a customer opens the course, watches its videos, or downloads any attached materials, the right to request a refund is forfeited, given the non-returnable nature of digital products.",
+            },
+          ],
+        },
+        live: {
+          title: "Live Courses & Interactive Workshops",
+          points: [
+            {
+              label: "Early Cancellation",
+              body: "A cancellation with a full refund may be requested at least 48 hours before the scheduled start of the live course or workshop.",
+            },
+            {
+              label: "Late Cancellation",
+              body: "Cancelling less than 48 hours before the live session results in a 50% deduction of the subscription value as an administrative fee, or the subscriber may transfer their enrollment to another course of equal value, subject to availability.",
+            },
+            {
+              label: "After the Session Starts",
+              body: "No refund will be issued once the live course has started, or if the subscriber fails to attend without prior notice.",
+            },
+          ],
+        },
+        timeline: {
+          title: "Refund Timeline",
+          body: "All legally approved refunds are processed and transferred to the customer's bank account — the same account or card used for payment — within 7 to 14 business days from the date the refund request is officially approved.",
+        },
       },
-      {
-        heading: "3. Information Sharing",
-        body: "We may share your information with trusted service providers who assist us in operating the platform (such as payment processors and hosting services), under strict agreements that commit to protecting your data.",
+    },
+    terms: {
+      badge: "Terms & Conditions",
+      title: "Terms & Conditions",
+      dateLabel: "Last Updated",
+      date: "20 July 2026",
+      intro:
+        "Welcome to the official website of Omnexa Learn, a digital education platform. Please read these Terms & Conditions carefully before using our website or subscribing to our courses and training programs. By using the website or creating an account, you expressly agree to be fully bound by these terms.",
+      items: {
+        accounts: {
+          title: "User Accounts",
+          points: [
+            "Users must provide accurate, correct, and fully up-to-date information when creating their learning account, including name, email address, and mobile number.",
+            "Users bear full responsibility for keeping their account credentials and password confidential, and for all activity carried out through their account.",
+          ],
+        },
+        acceptableUse: {
+          title: "Acceptable Use",
+          points: [
+            "Accounts are intended for individual, personal, and educational use only — sharing account credentials, or activating a single purchased course for more than one person, is strictly prohibited.",
+            "Subscribers must observe general etiquette when participating in discussion channels, interactive workshops, or when asking instructors questions. The platform reserves the right to suspend any account that misuses these privileges, without refunding any amounts paid.",
+          ],
+        },
+        intellectualProperty: {
+          title: "Intellectual Property",
+          body: "All content on the Omnexa Learn platform — including videos, educational texts, training materials, assessments, designs, logos, and trademarks — is the exclusive intellectual property of the platform and is protected under the copyright and intellectual property laws of the Kingdom of Saudi Arabia.",
+          noticeLabel: "Strictly Prohibited",
+          noticeBody:
+            "Recording video content, capturing the screen, republishing or redistributing educational materials, or using them for commercial purposes outside the platform without prior written permission. Any violation entitles the platform to pursue all available legal remedies and claim damages through the courts.",
+        },
+        governingLaw: {
+          title: "Governing Law",
+          body: "These Terms & Conditions are governed by, and shall be construed and applied in accordance with, the laws, regulations, and legal instructions in force in the Kingdom of Saudi Arabia. The courts of Saudi Arabia shall have exclusive jurisdiction over any dispute arising from the use of the platform or the interpretation of these terms.",
+        },
       },
-      {
-        heading: "4. Data Security",
-        body: "We implement the latest encryption standards and security protocols to protect your data. All information is stored on secure servers protected according to industry standards.",
-      },
-      {
-        heading: "5. Cookies",
-        body: "We use cookies to enhance your experience, remember your preferences, and analyze platform usage. You can control these files through your browser settings.",
-      },
-      {
-        heading: "6. Your Rights",
-        body: "You have the right at any time to request access to, correction of, or deletion of your personal data. To contact us about this, please email us at: info@omnexa.com",
-      },
-      {
-        heading: "7. Changes to This Policy",
-        body: "We may update this policy from time to time. We will notify you of any material changes via email or through a prominent notice on the platform.",
-      },
-    ],
-  },
-  terms: {
-    title: "Terms & Conditions",
-    lastUpdated: "Last updated: September 2025",
-    intro:
-      "Welcome to Omnexa Learn. By using our platform, you agree to comply with the terms and conditions outlined below. Please read them carefully.",
-    sections: [
-      {
-        heading: "1. Acceptance of Terms",
-        body: "By using or registering on the Omnexa Learn platform, you confirm that you have read, understood, and agree to be bound by these terms. If you represent an organization, you confirm that you have the authority to accept these terms on its behalf.",
-      },
-      {
-        heading: "2. Description of Service",
-        body: "Omnexa Learn is a specialized SaaS platform that enables teachers, training centers, and educational institutions to create and manage their digital academies. Services include: course builder, student management, live sessions, analytics, and payment gateways.",
-      },
-      {
-        heading: "3. Your Account & Responsibilities",
-        body: "You are responsible for maintaining the confidentiality of your login credentials and for all activities that occur under your account. You must notify us immediately upon suspecting any unauthorized use.",
-      },
-      {
-        heading: "4. Subscriptions & Billing",
-        body: "Subscriptions are billed monthly or annually according to the chosen plan. Subscriptions renew automatically unless cancelled at least 24 hours before the renewal date. Displayed prices exclude VAT.",
-      },
-      {
-        heading: "5. Intellectual Property",
-        body: "All content you create on the platform remains your property. Conversely, all elements of the Omnexa Learn platform (design, code, trademark) are the exclusive property of Omnexa.",
-      },
-      {
-        heading: "6. Prohibited Content",
-        body: "It is prohibited to use the platform to publish content that violates the law, is offensive, or infringes third-party intellectual property rights. We reserve the right to suspend accounts that violate these terms.",
-      },
-      {
-        heading: "7. Limitation of Liability",
-        body: "Omnexa Learn shall not be liable for any indirect or incidental damages arising from the use of, or inability to use, the platform, to the extent permitted by applicable law.",
-      },
-      {
-        heading: "8. Termination of Service",
-        body: "You may cancel your subscription at any time. We also reserve the right to terminate or suspend your account in case of breach of these terms, with prior notice where possible.",
-      },
-      {
-        heading: "9. Governing Law",
-        body: "These terms are governed by the e-commerce regulations of the Kingdom of Saudi Arabia and shall be interpreted accordingly. Any disputes shall be resolved before the competent courts in the Eastern Province of Saudi Arabia.",
-      },
-    ],
-  },
-  refundPolicy: {
-    title: "Refund Policy",
-    lastUpdated: "Last updated: September 2025",
-    intro:
-      "At Omnexa Learn, we always strive to ensure your complete satisfaction. This policy explains the conditions for payment refunds and how to submit a request.",
-    sections: [
-      {
-        heading: "1. Guarantee Period",
-        body: "We offer a full money-back guarantee within 7 days of your first subscription to any paid plan, provided your platform usage has not exceeded reasonable limits.",
-      },
-      {
-        heading: "2. Eligible Refund Cases",
-        body: "A refund request is accepted in the following cases: inability to access the service due to a technical error on our part, the service provided not matching what is described in the plan, or using the platform for the first time and requesting cancellation within the guarantee period.",
-      },
-      {
-        heading: "3. Non-Refundable Cases",
-        body: "You are not entitled to a refund in the following cases: expiry of the guarantee period (7 days), annual subscriptions after 7 days from the start of the subscription, or account cancellation due to violation of the terms and conditions.",
-      },
-      {
-        heading: "4. How to Submit a Refund Request",
-        body: "To submit a refund request, contact us via email at info@omnexa.com or via WhatsApp within the guarantee period. Please include your name, registered email, and the reason for your refund request.",
-      },
-      {
-        heading: "5. Refund Processing",
-        body: "Accepted refund requests are processed within 7-14 business days. The amount is returned to the same payment method used originally when subscribing.",
-      },
-      {
-        heading: "6. Upgrading or Changing Plan",
-        body: "When upgrading to a higher plan, the difference is calculated proportionally based on what remains of the current billing cycle. Changing from an annual plan to a monthly plan takes effect from the next billing cycle.",
-      },
-      {
-        heading: "7. Contact Us",
-        body: "For any inquiries about the refund policy, contact us at: info@omnexa.com | WhatsApp: +966550483401",
-      },
-    ],
+    },
+    cta: {
+      title: "Need Help?",
+      description:
+        "If you have questions regarding these policies, contact our support team.",
+      button: "Contact Us",
+    },
   },
 };

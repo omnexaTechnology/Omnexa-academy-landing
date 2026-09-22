@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { IBM_Plex_Sans, IBM_Plex_Sans_Arabic } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
+import { SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
 const ibmPlexSans = IBM_Plex_Sans({
@@ -19,6 +20,7 @@ const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Omnexa Learn — Launch Your Online Academy",
   description:
     "Create, manage, and grow your online academy with Omnexa Learn. Everything you need to educate your students in one platform.",
