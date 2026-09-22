@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useTranslations, useLocale } from "next-intl";
+import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import Image from "next/image";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -21,8 +22,13 @@ const NAV_LINKS = [
 export default function Navbar() {
   const t = useTranslations("nav");
   const locale = useLocale();
+  const pathname = usePathname();
+  const isHome = pathname === "/" || pathname === "";
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
+
+  // Prefix anchor with "/" when not on home page so the browser navigates there first
+  const navHref = (anchor: string) => (isHome ? anchor : `/${anchor}`);
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
@@ -59,7 +65,7 @@ export default function Navbar() {
         {/* Left: Logo + Nav */}
         <div className="flex flex-1 items-center gap-4 lg:gap-6 xl:gap-10">
           {/* Logo */}
-          <a href="#hero" className="shrink-0">
+          <a href={navHref("#hero")} className="shrink-0">
             <Image
               src={logoSrc}
               alt="Omnexa Learn"
@@ -73,11 +79,11 @@ export default function Navbar() {
           {/* Desktop Nav Links */}
           <nav className="hidden items-end gap-1 lg:flex xl:gap-2">
             {NAV_LINKS.map(({ href, key, sectionId }) => {
-              const isActive = activeSection === sectionId;
+              const isActive = isHome && activeSection === sectionId;
               return (
                 <a
                   key={href}
-                  href={href}
+                  href={navHref(href)}
                   className={[
                     "whitespace-nowrap pb-4 px-2 lg:px-3 text-sm font-medium transition-colors lg:text-sm xl:text-base 2xl:text-xl",
                     isActive
@@ -177,11 +183,11 @@ export default function Navbar() {
             <SheetContent side="right" className="w-72">
               <nav className="mt-8 flex flex-col gap-3">
                 {NAV_LINKS.map(({ href, key, sectionId }) => {
-                  const isActive = activeSection === sectionId;
+                  const isActive = isHome && activeSection === sectionId;
                   return (
                     <a
                       key={href}
-                      href={href}
+                      href={navHref(href)}
                       onClick={() => setOpen(false)}
                       className={[
                         "py-2 text-base font-medium transition-colors",
