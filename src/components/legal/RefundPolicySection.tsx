@@ -1,11 +1,7 @@
 import { useTranslations } from "next-intl";
 import { CreditCard } from "lucide-react";
 import LegalSection from "./LegalSection";
-import {
-  LegalAccordion,
-  LegalAccordionItem,
-  LabeledPointList,
-} from "./LegalAccordionItem";
+import { LabeledBlock, LabeledPointList } from "./LegalAccordionItem";
 
 export default function RefundPolicySection() {
   const t = useTranslations("legal.refund");
@@ -21,30 +17,27 @@ export default function RefundPolicySection() {
       intro={t("intro")}
       tone="blue"
     >
-      <LegalAccordion>
-        <LegalAccordionItem value="item-0" title={t("items.recorded.title")}>
-          <LabeledPointList
-            items={
-              t.raw("items.recorded.points") as {
-                label: string;
-                body: string;
-              }[]
-            }
-          />
-        </LegalAccordionItem>
+      <LabeledBlock title={t("items.recorded.title")}>
+        <LabeledPointList
+          items={
+            t.raw("items.recorded.points") as { label: string; body: string }[]
+          }
+        />
+      </LabeledBlock>
 
-        <LegalAccordionItem value="item-1" title={t("items.live.title")}>
-          <LabeledPointList
-            items={
-              t.raw("items.live.points") as { label: string; body: string }[]
-            }
-          />
-        </LegalAccordionItem>
+      <LabeledBlock title={t("items.live.title")}>
+        <LabeledPointList
+          items={
+            t.raw("items.live.points") as { label: string; body: string }[]
+          }
+        />
+      </LabeledBlock>
 
-        <LegalAccordionItem value="item-2" title={t("items.timeline.title")}>
-          <p>{t("items.timeline.body")}</p>
-        </LegalAccordionItem>
-      </LegalAccordion>
+      <LabeledBlock title={t("items.timeline.title")}>
+        <p className="text-[15px] leading-relaxed text-[#636363] sm:text-base">
+          {t("items.timeline.body")}
+        </p>
+      </LabeledBlock>
     </LegalSection>
   );
 }

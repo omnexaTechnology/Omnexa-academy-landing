@@ -1,29 +1,29 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { ShieldCheck } from "lucide-react";
+import { CreditCard } from "lucide-react";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import LegalPageHero from "@/components/legal/LegalPageHero";
-import PrivacyPolicySection from "@/components/legal/PrivacyPolicySection";
+import RefundPolicySection from "@/components/legal/RefundPolicySection";
 import LegalCTA from "@/components/legal/LegalCTA";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("legal.privacyMeta");
+  const t = await getTranslations("legal.refundMeta");
   return {
     title: t("title"),
     description: t("description"),
-    alternates: { canonical: "/privacy-policy" },
+    alternates: { canonical: "/refund-policy" },
     openGraph: {
       title: t("title"),
       description: t("description"),
-      url: "/privacy-policy",
+      url: "/refund-policy",
       type: "website",
     },
   };
 }
 
-export default async function PrivacyPolicyPage() {
-  const t = await getTranslations("legal.privacyHero");
+export default async function RefundPolicyPage() {
+  const t = await getTranslations("legal.refundHero");
 
   return (
     <main>
@@ -34,9 +34,9 @@ export default async function PrivacyPolicyPage() {
         description={t("description")}
         lastUpdatedLabel={t("lastUpdatedLabel")}
         lastUpdatedDate={t("lastUpdatedDate")}
-        icon={ShieldCheck}
+        icon={CreditCard}
       />
-      <PrivacyPolicySection />
+      <RefundPolicySection />
       <LegalCTA />
       <Footer />
     </main>

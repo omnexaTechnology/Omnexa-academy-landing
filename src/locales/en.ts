@@ -357,6 +357,8 @@ export default {
       howToCreate: "How to create account on omnexa learn?",
       contact: "Contact us",
       privacyPolicy: "Privacy Policy",
+      terms: "Terms & Conditions",
+      refundPolicy: "Refund Policy",
     },
     contactUs: "Contact us",
     internationalNumber: "Saudi Arabia",
@@ -372,19 +374,46 @@ export default {
     copyrightPart2: " 2025",
   },
   legal: {
-    meta: {
+    privacyMeta: {
       title: "Privacy Policy | Omnexa Learn",
       description:
-        "Read Omnexa Learn's Privacy Policy, Refund Policy, and Terms & Conditions.",
+        "Learn how Omnexa Learn collects, uses, and protects your personal data when you use the platform.",
     },
-    hero: {
-      badge: "Legal",
+    termsMeta: {
+      title: "Terms & Conditions | Omnexa Learn",
+      description:
+        "Read the official terms and conditions governing your use of the Omnexa Learn platform.",
+    },
+    refundMeta: {
+      title: "Refund Policy | Omnexa Learn",
+      description:
+        "Understand the refund, replacement, and cancellation policy for Omnexa Learn.",
+    },
+    privacyHero: {
+      badge: "Privacy Policy",
       title: "Your Privacy Matters",
       description:
-        "Learn how Omnexa Learn protects your information, handles payments, and governs the use of the platform.",
+        "Learn how Omnexa Learn collects, uses, and protects your personal data when you use the platform.",
       lastUpdatedLabel: "Last Updated",
       lastUpdatedDate: "20 July 2026",
     },
+    termsHero: {
+      badge: "Terms & Conditions",
+      title: "Official Terms & Conditions",
+      description:
+        "Please read these terms carefully. By using the platform, you explicitly agree to comply with all of them.",
+      lastUpdatedLabel: "Last Updated",
+      lastUpdatedDate: "20 July 2026",
+    },
+    refundHero: {
+      badge: "Refund Policy",
+      title: "Refund & Replacement Policy",
+      description:
+        "We always strive to ensure your complete satisfaction. Learn about our refund conditions and how to submit a request.",
+      lastUpdatedLabel: "Last Updated",
+      lastUpdatedDate: "20 July 2026",
+    },
+
     privacy: {
       badge: "Privacy Policy",
       title: "Privacy Policy",
