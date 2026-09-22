@@ -239,7 +239,7 @@ export default function Footer() {
             </Link>
             <span className="h-4 w-px" style={{ backgroundColor: "#555" }} />
             <Link
-              href="/privacy-policy#terms"
+              href="/terms"
               className="text-sm transition-colors hover:text-white md:text-base"
               style={{ color: "#b4b4b4" }}
             >
@@ -247,7 +247,7 @@ export default function Footer() {
             </Link>
             <span className="h-4 w-px" style={{ backgroundColor: "#555" }} />
             <Link
-              href="/privacy-policy#refund"
+              href="/refund-policy"
               className="text-sm transition-colors hover:text-white md:text-base"
               style={{ color: "#b4b4b4" }}
             >

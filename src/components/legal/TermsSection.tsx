@@ -1,11 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Scale } from "lucide-react";
 import LegalSection from "./LegalSection";
-import {
-  LegalAccordion,
-  LegalAccordionItem,
-  BulletList,
-} from "./LegalAccordionItem";
+import { BulletList, LabeledBlock, NoticeBlock } from "./LegalAccordionItem";
 
 export default function TermsSection() {
   const t = useTranslations("legal.terms");
@@ -21,40 +17,29 @@ export default function TermsSection() {
       intro={t("intro")}
       tone="navy"
     >
-      <LegalAccordion>
-        <LegalAccordionItem value="item-0" title={t("items.accounts.title")}>
-          <BulletList items={t.raw("items.accounts.points") as string[]} />
-        </LegalAccordionItem>
+      <LabeledBlock title={t("items.accounts.title")}>
+        <BulletList items={t.raw("items.accounts.points") as string[]} />
+      </LabeledBlock>
 
-        <LegalAccordionItem
-          value="item-1"
-          title={t("items.acceptableUse.title")}
-        >
-          <BulletList
-            items={t.raw("items.acceptableUse.points") as string[]}
-          />
-        </LegalAccordionItem>
+      <LabeledBlock title={t("items.acceptableUse.title")}>
+        <BulletList items={t.raw("items.acceptableUse.points") as string[]} />
+      </LabeledBlock>
 
-        <LegalAccordionItem
-          value="item-2"
-          title={t("items.intellectualProperty.title")}
-        >
-          <p className="mb-4">{t("items.intellectualProperty.body")}</p>
-          <div className="rounded-xl border border-[#4C4BE0]/15 bg-[#4C4BE0]/5 p-4">
-            <p className="mb-1 font-semibold text-[#0d0d0d]">
-              {t("items.intellectualProperty.noticeLabel")}
-            </p>
-            <p>{t("items.intellectualProperty.noticeBody")}</p>
-          </div>
-        </LegalAccordionItem>
+      <LabeledBlock title={t("items.intellectualProperty.title")}>
+        <p className="mb-5 text-[15px] leading-relaxed text-[#636363] sm:text-base">
+          {t("items.intellectualProperty.body")}
+        </p>
+        <NoticeBlock
+          label={t("items.intellectualProperty.noticeLabel")}
+          body={t("items.intellectualProperty.noticeBody")}
+        />
+      </LabeledBlock>
 
-        <LegalAccordionItem
-          value="item-3"
-          title={t("items.governingLaw.title")}
-        >
-          <p>{t("items.governingLaw.body")}</p>
-        </LegalAccordionItem>
-      </LegalAccordion>
+      <LabeledBlock title={t("items.governingLaw.title")}>
+        <p className="text-[15px] leading-relaxed text-[#636363] sm:text-base">
+          {t("items.governingLaw.body")}
+        </p>
+      </LabeledBlock>
     </LegalSection>
   );
 }
