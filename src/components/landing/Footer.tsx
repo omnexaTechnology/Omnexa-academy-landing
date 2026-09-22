@@ -206,8 +206,36 @@ export default function Footer() {
           style={{ backgroundColor: "#9c9c9c" }}
         />
 
-        {/* ── Bottom bar: Copyright + WhatsApp badge ── */}
-        <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+        {/* ── Bottom bar: Copyright + Legal Links + WhatsApp badge ── */}
+        <div className="flex flex-col items-center gap-4">
+          {/* Legal links row */}
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            <Link
+              href="/privacy-policy"
+              className="text-sm transition-colors hover:text-white md:text-base"
+              style={{ color: "#b4b4b4" }}
+            >
+              {t("legalLinks.privacyPolicy")}
+            </Link>
+            <span className="h-4 w-px" style={{ backgroundColor: "#555" }} />
+            <Link
+              href="/terms"
+              className="text-sm transition-colors hover:text-white md:text-base"
+              style={{ color: "#b4b4b4" }}
+            >
+              {t("legalLinks.terms")}
+            </Link>
+            <span className="h-4 w-px" style={{ backgroundColor: "#555" }} />
+            <Link
+              href="/refund-policy"
+              className="text-sm transition-colors hover:text-white md:text-base"
+              style={{ color: "#b4b4b4" }}
+            >
+              {t("legalLinks.refundPolicy")}
+            </Link>
+          </div>
+
+          {/* Copyright */}
           <p
             className="text-base leading-relaxed md:text-lg lg:text-xl"
             style={{ color: "#dddddd" }}
@@ -218,27 +246,27 @@ export default function Footer() {
             </strong>
             {t("copyrightPart2")}
           </p>
-
-          {/* WhatsApp floating badge */}
-          <a
-            href="https://wa.me/966550483401"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="WhatsApp"
-            className="fixed right-5 bottom-5 z-50 flex h-12 w-12 items-center justify-center rounded-full shadow-lg transition-opacity hover:opacity-90 sm:right-10 sm:bottom-10"
-            style={{
-              background: "linear-gradient(135deg, #25D366 0%, #25D366 100%)",
-            }}
-          >
-            <Image
-              src={ASSETS.whatsapp}
-              alt="WhatsApp"
-              width={24}
-              height={24}
-              className="block"
-            />
-          </a>
         </div>
+
+        {/* WhatsApp floating badge */}
+        <a
+          href="https://wa.me/966550483401"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+          className="fixed right-5 bottom-5 z-50 flex h-12 w-12 items-center justify-center rounded-full shadow-lg transition-opacity hover:opacity-90 sm:right-10 sm:bottom-10"
+          style={{
+            background: "linear-gradient(135deg, #25D366 0%, #25D366 100%)",
+          }}
+        >
+          <Image
+            src={ASSETS.whatsapp}
+            alt="WhatsApp"
+            width={24}
+            height={24}
+            className="block"
+          />
+        </a>
       </div>
     </footer>
   );
